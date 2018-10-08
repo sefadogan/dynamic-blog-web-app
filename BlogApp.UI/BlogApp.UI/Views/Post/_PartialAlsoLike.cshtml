@@ -1,0 +1,22 @@
+﻿
+@using BlogApp.DAL.Entity
+@{
+    List<Post> topThreePosts = ViewData["TopThreePosts"] as List<BlogApp.DAL.Entity.Post>;
+}
+
+<!-- You May Also Like Start -->
+<div class="you-may-also-like margin-top-50 margin-bottom-50">
+    <h3>Son Eklenen Paylaşımlar</h3>
+    <div class="row">
+        @foreach (var post in topThreePosts)
+        {
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <a href="/Post/Detail/@post.PostId">
+                    <p>@post.Title</p>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+<!-- You May Also Like End -->
+

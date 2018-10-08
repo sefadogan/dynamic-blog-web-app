@@ -1,0 +1,168 @@
+﻿
+@using BlogApp.Model.ViewModel
+@using BlogApp.DAL.Entity
+@model Post
+
+@{
+    ViewBag.Title = Model.Title;
+    ViewBag.Keywords = Model.MetaKeywords;
+    ViewBag.PostTitle = Model.Title;
+    ViewBag.Description = Model.BodySummary;
+    ViewBag.Author = Model.User.FirstName + Model.User.LastName;
+
+    List<VMHierarchicalCommentList> commentList = ViewData["CommentList"] as List<VMHierarchicalCommentList>;
+    List<Post> topThreePosts = ViewData["TopThreePosts"] as List<Post>;
+}
+
+<style>
+    @@media only screen and (max-width: 766px) {
+        .user-photo {
+            display: none;
+        }
+    }
+
+    .post-content {
+        text-align: justify;
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    .btnSubmit {
+        background-color: #1abc9c;
+        color: white;
+    }
+
+        .btnSubmit:hover {
+            background-color: black;
+            color: white;
+        }
+</style>
+
+<div class="sub-title">
+    <a href="/Home/Index" title="Anasayfaya Dön"><h2> Anasayfaya Dön</h2></a>
+    <a href="#comment" class="smoth-scroll"><i class="icon-bubbles"></i></a>
+</div>
+
+
+<div class="col-md-12 content-page">
+    <div class="col-md-12 blog-post">
+
+        <!-- Post Headline Start -->
+        <div class="post-title">
+            <h1>@Model.Title</h1>
+        </div>
+        <!-- Post Headline End -->
+
+        <!-- Post Summary Start -->
+        <div class="post-title">
+            <h4 style="line-height:30px; text-align:justify;">@Model.BodySummary</h4>
+        </div>
+        <!-- Post Summary End -->
+
+        <!-- Post Detail Start -->
+        <div class="post-info">
+            <span>
+                <i class="fa fa-clock-o"></i> @Model.InsertedDate.ToShortDateString()
+                &emsp; <i class="fa fa-user"></i> <a href="/Home/About" style="color:#8c8c8c;">@Model.User.FirstName @Model.User.LastName</a>
+            </span>
+        </div>
+        <!-- Post Detail End -->
+
+        <!-- Post Content Start -->
+        <p class="post-content">
+            @Html.Raw(Model.Body)
+        </p>
+        <!-- Post Content End-->
+
+        @Html.Partial("_PartialAlsoLike", topThreePosts)
+
+        <!-- Post Comment Start -->
+        <div id="comment" class="comment">
+            <h3>Yorumlar</h3>
+            @foreach (var comment in commentList)
+            {
+                <div class="row">
+                    <div class="col-lg-1 col-md-1 col-sm-1">
+                        <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                    </div>
+                    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <strong>@comment.UserFirstName.ToUpper() @comment.UserLastName.ToUpper()</strong> <span class="text-muted">@comment.InsertedDate.ToShortDateString() @comment.InsertedDate.ToShortTimeString()</span>
+                            </div>
+                            <div class="panel-body">
+                                @comment.Text
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                if (comment.ChildComments.Count() != 0)
+                {
+                    foreach (var childComment in comment.ChildComments)
+                    {
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1">&nbsp;</div>
+                            <div class="col-lg-1 col-md-1 col-sm-1">
+                                <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <strong>> @childComment.UserFirstName.ToUpper() @childComment.UserLastName.ToUpper()</strong> <span class="text-muted">@childComment.InsertedDate.ToShortDateString() @childComment.InsertedDate.ToShortTimeString()</span>
+                                        <button class="btn btn-default btn-sm">Cevapla</button>
+                                    </div>
+                                    <div class="panel-body">
+                                        @childComment.Text
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+
+            @if (commentList.Count == 0)
+            {
+                <div class="alert alert-info col-md-12" role="alert">
+                    Henüz bu paylaşım hakkında yorum bulunmamaktadır.
+                </div>
+            }
+
+            <h3>Yorum Yapın</h3>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="widget-area no-padding blank">
+                        <div class="status-upload">
+                            @using (Html.BeginForm("SendComment", "Post"))
+                            {
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" id="inptFirstName" name="firstname" placeholder="Ad*" autocomplete="off">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" id="inptLastName" name="lastname" placeholder="Soyad*" autocomplete="off">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <input type="email" class="form-control" id="inptEmail" name="email" aria-describedby="emailInfo" placeholder="Email*">
+                                    <small id="emailInfo" class="form-text text-muted">Email adresiniz asla başkalarıyla paylaşılmayacak.</small>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <textarea class="form-control" id="inptComment" name="text" placeholder="Yorum*" rows="6"></textarea>
+                                </div>
+                                @Html.HiddenFor(x => x.PostId)
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-default btnSubmit">Gönder</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Post Comment End -->
+
+    </div>
+</div>

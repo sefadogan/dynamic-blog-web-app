@@ -1,0 +1,72 @@
+﻿
+@using BlogApp.DAL.Entity
+@model Category
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_Layout.cshtml";
+    List<SelectListItem> hierarchicalCategoryList = ViewData["HierarchicalCategoryList"] as List<SelectListItem>;
+}
+
+
+<h3><i class="fa fa-angle-right"></i> Create Category</h3>
+<hr />
+
+<div class="row mt">
+    <div class="col-md-12">
+        <div class="content-panel" style="padding:15px;">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2">Category Name</div>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="Name" placeholder="Category Name" required />
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2">Description</div>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="Description" placeholder="Description" required />
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            Parent Category
+                            <br /><small>(Optional)</small>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(x => x.ParentCategoryId, hierarchicalCategoryList, "Select a parent category", new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2">Active</div>
+                        <div class="col-md-1">
+                            <input type="checkbox" name="IsActive" />
+                            @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+            <div>
+                <i class="fa fa-arrow-circle-left"></i> @Html.ActionLink("Back to List", "/List")
+            </div>
+        </div>
+    </div>
+</div>
+

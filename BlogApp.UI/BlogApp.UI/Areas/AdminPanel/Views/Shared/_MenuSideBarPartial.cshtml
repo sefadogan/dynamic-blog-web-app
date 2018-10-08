@@ -1,0 +1,72 @@
+﻿
+@using BlogApp.DAL.Entity
+@model User
+
+<!-- sidebar menu start-->
+<ul class="sidebar-menu" id="nav-accordion">
+
+    <p class="centered"><a href="profile.html"><img src="~/Areas/AdminPanel/Temp/Dashgumfree/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+    <h5 class="centered">@Model.FirstName @Model.LastName </h5>
+
+    <li class="mt">
+        <a href="/AdminPanel/Home/Dashboard">
+            <i class="fa fa-dashboard"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
+
+    <li class="sub-menu">
+        <a href="javascript:;">
+            <i class="fa fa-book"></i>
+            <span>Post Management</span>
+        </a>
+        <ul class="sub">
+            <li><a href="/AdminPanel/Post/Create">Create New</a></li>
+            <li><a href="/AdminPanel/Post/List">Post List</a></li>
+        </ul>
+    </li>
+
+    <li class="sub-menu">
+        <a href="javascript:;">
+            <i class="fa fa-cogs"></i>
+            <span>Category Management</span>
+        </a>
+        <ul class="sub">
+            <li><a href="/AdminPanel/Category/Create">Create New</a></li>
+            <li><a href="/AdminPanel/Category/List">Category List</a></li>
+        </ul>
+    </li>
+
+    <li class="sub-menu">
+        <a href="javascript:;">
+            <i class="fa fa-user"></i>
+            <span>User Management</span>
+        </a>
+        <ul class="sub">
+            <li><a href="/AdminPanel/User/Create">Create New</a></li>
+            <li><a href="/AdminPanel/User/List">User List</a></li>
+        </ul>
+    </li>
+
+    <li class="sub-menu">
+        <a href="javascript:;">
+            <i class="fa fa-comment"></i>
+            <span>Comment Management</span>
+        </a>
+        <ul class="sub">
+            <li><a href="/AdminPanel/Comment/List">Comment List</a></li>
+        </ul>
+    </li>
+
+    <li class="sub-menu">
+        <a href="javascript:;">
+            <i class="fa fa-th"></i>
+            <span>Role Management</span>
+        </a>
+        <ul class="sub">
+            <li><a href="/AdminPanel/Role/Create">Create New</a></li>
+            <li><a href="/AdminPanel/Role/List">Role List</a></li>
+        </ul>
+    </li>
+</ul>
+<!-- sidebar menu end-->

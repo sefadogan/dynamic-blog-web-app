@@ -1,0 +1,68 @@
+﻿@using BlogApp.DAL.Entity
+@model Post
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h3><i class="fa fa-angle-right"></i> Detail</h3>
+
+<div class="row mt">
+    <div class="col-md-12">
+        <a href="/AdminPanel/Post/Edit/@Model.PostId" class="btn btn-success btn-sm" style="margin-bottom:8px;">Edit</a>
+        <div class="content-panel" style="padding:15px;">
+            <dl class="dl-horizontal">
+                <dt>Title</dt>
+
+                <dd>@Html.DisplayFor(model => model.Title)</dd>
+
+                <dt>Summary</dt>
+
+                <dd>@Html.DisplayFor(model => model.BodySummary)</dd>
+
+                <dt>Body</dt>
+
+                <dd>@Html.Raw(Model.Body)</dd>
+
+                <dt>Meta Keywords</dt>
+
+                <dd>@Html.Raw(Model.MetaKeywords)</dd>
+
+                <dt>Times Displayed</dt>
+
+                <dd>@Html.DisplayFor(model => model.TimesDisplayed)</dd>
+
+                <dt>Author</dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.User.FirstName) @Html.DisplayFor(model => model.User.LastName)
+                </dd>
+
+                <dt>Status</dt>
+
+                <dd>
+                    @{
+                        if (Model.IsActive)
+                        {
+                            <span class="label label-success label-mini">Active</span>
+                        }
+                        else
+                        {
+                            <span class="label label-danger label-mini">Passive</span>
+                        }
+                    }
+                </dd>
+
+                <dt>Category</dt>
+
+                <dd>@Html.DisplayFor(model => model.Category.Name)</dd>
+
+            </dl>
+
+            <div>
+                <i class="fa fa-arrow-circle-left"></i> @Html.ActionLink("Back to List", "/List")
+            </div>
+        </div>
+    </div>
+</div>

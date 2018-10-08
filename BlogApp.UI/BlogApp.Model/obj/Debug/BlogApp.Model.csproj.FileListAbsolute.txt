@@ -1,0 +1,5 @@
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.Model\bin\Debug\BlogApp.Model.dll
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.Model\bin\Debug\BlogApp.Model.pdb
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.Model\obj\Debug\BlogApp.Model.csproj.CoreCompileInputs.cache
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.Model\obj\Debug\BlogApp.Model.dll
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.Model\obj\Debug\BlogApp.Model.pdb

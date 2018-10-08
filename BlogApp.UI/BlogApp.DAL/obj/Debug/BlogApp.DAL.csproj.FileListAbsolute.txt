@@ -1,0 +1,11 @@
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.DAL\bin\Debug\BlogApp.DAL.dll.config
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.DAL\bin\Debug\BlogApp.DAL.dll
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.DAL\bin\Debug\BlogApp.DAL.pdb
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.DAL\bin\Debug\EntityFramework.dll
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.DAL\bin\Debug\EntityFramework.xml
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.DAL\obj\Debug\BlogApp.DAL.csproj.CoreCompileInputs.cache
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.DAL\obj\Debug\BlogApp.DAL.csproj.CopyComplete
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.DAL\obj\Debug\BlogApp.DAL.dll
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.DAL\obj\Debug\BlogApp.DAL.pdb

@@ -1,0 +1,55 @@
+﻿
+@using PagedList.Mvc
+@using BlogApp.DAL.Entity
+@model PagedList.IPagedList<Post>
+
+@{
+    ViewBag.Title = "Anasayfa";
+}
+
+<style>
+    
+</style>
+
+<div class="sub-title">
+    <h2>Son Paylaşılanlar</h2>
+    <a href="/Anasayfa"><i class="icon-envelope"></i></a>
+</div>
+
+<div class="col-md-12 content-page">
+
+    <!-- Blog Post Start -->
+    <div class="col-md-12 blog-post">
+        @foreach (var post in Model)
+        {
+            <div class="post-title">
+                <a href="/Post/Detay/@post.PostId"><h1>@post.Title</h1></a>
+            </div>
+
+            <div class="post-info">
+                <span>
+                    <i class="fa fa-clock-o"></i> @post.InsertedDate.ToShortDateString()
+                    &emsp; <i class="fa fa-user"></i> <a href="/Hakkimda" style="color:#8c8c8c;">@post.User.FirstName @post.User.LastName</a>
+                </span>
+            </div>
+
+            <p style="text-align:justify;">
+                @post.BodySummary
+            </p>
+
+            <a href="/Post/Detay/@post.PostId" class="button button-style button-anim fa fa-long-arrow-right"><span>Devamını oku</span></a>
+            <hr />
+        }
+
+        <!-- Pagination Start -->
+        <div class="pagination small">
+            @Html.PagedListPager(Model, Page => Url.Action("/Index/" + Model[0].PostId, new { Page = Page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+        </div>
+        <!-- Pagination End -->
+
+    </div>
+    <!-- Blog Post End -->
+
+</div>
+
+

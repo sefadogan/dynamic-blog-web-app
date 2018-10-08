@@ -1,0 +1,10 @@
+﻿
+@using BlogApp.DAL.Entity
+@model List<Category>
+
+@foreach (var category in Model)
+{
+    <ul>
+        <li><a href="@category.CategoryId">@category.Name</a></li>
+    </ul>
+}

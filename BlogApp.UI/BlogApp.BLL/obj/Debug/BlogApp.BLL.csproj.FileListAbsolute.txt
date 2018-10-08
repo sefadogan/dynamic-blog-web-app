@@ -1,0 +1,17 @@
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.BLL\bin\Debug\BlogApp.BLL.dll.config
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.BLL\bin\Debug\BlogApp.BLL.dll
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.BLL\bin\Debug\BlogApp.BLL.pdb
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.BLL\bin\Debug\BlogApp.DAL.dll
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.BLL\bin\Debug\BlogApp.Model.dll
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.BLL\bin\Debug\EntityFramework.dll
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.BLL\bin\Debug\EntityFramework.SqlServer.dll
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.BLL\bin\Debug\BlogApp.DAL.pdb
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.BLL\bin\Debug\BlogApp.DAL.dll.config
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.BLL\bin\Debug\BlogApp.Model.pdb
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.BLL\bin\Debug\EntityFramework.xml
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.BLL\bin\Debug\EntityFramework.SqlServer.xml
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.BLL\obj\Debug\BlogApp.BLL.csprojAssemblyReference.cache
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.BLL\obj\Debug\BlogApp.BLL.csproj.CoreCompileInputs.cache
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.BLL\obj\Debug\BlogApp.BLL.csproj.CopyComplete
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.BLL\obj\Debug\BlogApp.BLL.dll
+D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.BLL\obj\Debug\BlogApp.BLL.pdb

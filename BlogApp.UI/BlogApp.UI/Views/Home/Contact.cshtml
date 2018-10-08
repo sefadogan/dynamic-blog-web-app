@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "İletişim";
+}
+
+<style>
+    h5 {
+        line-height: 25px;
+        text-align: justify;
+    }
+
+    .btnSubmit {
+        background-color: #1abc9c;
+        color: white;
+    }
+
+        .btnSubmit:hover {
+            background-color: black;
+            color: white;
+        }
+
+    textarea {
+        resize: vertical;
+    }
+</style>
+
+<div class="sub-title">
+    <a href="/Anasayfa" title="Anasayfaya Dön"><h2> Anasayfaya Dön</h2></a>
+</div>
+
+<div class="col-md-12 content-page">
+    <div class="col-md-12 blog-post">
+
+        <div class="post-title">
+            <h1>İletişime <span class="main-color">Geçin</span></h1>
+        </div>
+
+        <h5>
+            Aşağıdaki mail formundan direkt bana ulaşabilir veya <a href="mailto:iletisim@sefadogan.com">iletisim@sefadogan.com</a> adresi üzerinden mail atabilirsiniz.
+        </h5>
+
+        <div class="row margin-top-30">
+            <div class="col-md-12">
+                <div class="row">
+                    <form method="post" id="contactForm">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Ad*" autocomplete="off" title="Lütfen bu alanı doldurun." autofocus required>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" id="surname" name="surname" class="form-control" placeholder="Soyad*" autocomplete="off" title="Lütfen bu alanı doldurun." required>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" class="form-control" placeholder="Email*" title="Lütfen bu alanı doldurun." required>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="textarea-message form-group">
+                                <textarea id="message" name="message" class="textarea-message form-control" placeholder="Mesaj*" rows="5" title="Lütfen bu alanı doldurun." required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <button type="submit" id="btnSubmit" class="btn btn-default btnSubmit">Gönder</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $("#contactForm").submit(function () {
+            $.post("/Home/SendEmail", $(this).serialize(), function (data) {
+                if (data.success) {
+                    $("#name").val("");
+                    $("#surname").val("");
+                    $("#email").val("");
+                    $("#message").val("");
+                }
+                alert(data.message);
+            });
+            return false;
+        });
+    });
+</script>
