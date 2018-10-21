@@ -18,7 +18,7 @@
     </Key>
     <Property Name="CommentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ParentCommentId" Type="int" Nullable="false" />
-    <Property Name="Text" Type="nvarchar(max)" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Status" Type="tinyint" Nullable="false" />
     <Property Name="InsertedDate" Type="datetime" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />
@@ -35,10 +35,10 @@
     <Property Name="TimesDisplayed" Type="smallint" />
     <Property Name="MetaKeywords" Type="nvarchar(max)" Nullable="false" />
     <Property Name="InsertedDate" Type="datetime" Nullable="false" />
-    <Property Name="ImageUrl" Type="nvarchar(max)" />
     <Property Name="IsActive" Type="bit" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="SeoUrl" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="PostTags">
     <Key>

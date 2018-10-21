@@ -18,7 +18,7 @@
       <PropertyRef Name="CommentId" />
     </Key>
     <Property Name="CommentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Status" Type="Byte" Nullable="false" />
     <Property Name="InsertedDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UserId" Type="Int32" Nullable="false" />
@@ -45,6 +45,7 @@
     <NavigationProperty Name="User" Relationship="Self.FK_Posts_Users" FromRole="Posts" ToRole="Users" />
     <NavigationProperty Name="PostTags" Relationship="Self.FK_PostsTags_Posts" FromRole="Posts" ToRole="PostTags" />
     <Property Name="MetaKeywords" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SeoUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityType Name="PostTag">
     <Key>

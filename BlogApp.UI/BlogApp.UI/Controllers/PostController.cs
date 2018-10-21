@@ -11,11 +11,12 @@ namespace BlogApp.UI.Controllers
 {
     public class PostController : Controller
     {
-        public ActionResult Detail(int id)
+        [Route("{seoUrl}-{postId:int}")]
+        public ActionResult Detail(int postId)
         {
             List<VMHierarchicalCommentList> hierarchicalCommentList = new List<VMHierarchicalCommentList>();
 
-            List<Comment> allComments = new CommentService().ListAll().Where(c => c.Status == 1 && c.PostId == id).ToList(); // 0: Passive, 1: Active, 2: Pending.
+            List<Comment> allComments = new CommentService().ListAll().Where(c => c.Status == 1 && c.PostId == postId).ToList(); // 0: Passive, 1: Active, 2: Pending.
             foreach (var item in allComments.Where(c => c.ParentCommentId == 0).ToList())
             {
                 VMHierarchicalCommentList parentComment = new VMHierarchicalCommentList()
@@ -37,7 +38,7 @@ namespace BlogApp.UI.Controllers
             var topThreePosts = new PostService().ListAll().OrderByDescending(x => x.InsertedDate).Skip(0).Take(3).ToList();
             ViewData["TopThreePosts"] = topThreePosts; // This is for _PartialAlsoLike.
 
-            var post = new PostService().BringById(id);
+            var post = new PostService().BringById(postId);
             return View(post);
         }
 
@@ -74,6 +75,7 @@ namespace BlogApp.UI.Controllers
                 throw;
             }
         }
+
         public void FillChildComment(VMHierarchicalCommentList hierarchicalCommentList, int parentCommentId, List<Comment> allComments)
         {
             foreach (var item in allComments.Where(c => c.ParentCommentId == parentCommentId).ToList())

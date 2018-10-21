@@ -22,68 +22,76 @@
             {
                 @Html.AntiForgeryToken()
 
-                <div class="form-horizontal">
+            <div class="form-horizontal">
 
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Title" } })
-                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-                        </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Title" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                     </div>
-
-                    <div class="form-group">
-                        <div class="control-label col-md-2">Summary</div>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.BodySummary, new { htmlAttributes = new { @class = "form-control", placeholder = "Body summary" } })
-                            @Html.ValidationMessageFor(model => model.BodySummary, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.TextAreaFor(model => model.Body, new { @id = "FullBody", @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger", @Mode = "Encode" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <span class="control-label col-md-2">Category</span>
-                        <div class="col-md-4">
-                            @Html.DropDownListFor(x => x.CategoryId, hierarchicalCategoryList, "Select a category", new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <span class="control-label col-md-2">Meta Keywords</span>
-                        <div class="col-md-4">
-                            @Html.EditorFor(model => model.MetaKeywords, new { htmlAttributes = new { @class = "form-control", placeholder = "Meta tag(s)" } })
-                            <small>
-                                (Comma separated)
-                            </small>
-                            @Html.ValidationMessageFor(model => model.MetaKeywords, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="control-label col-md-2">Active</div>
-                        <div class="col-md-1">
-                            @Html.EditorFor(model => model.IsActive)
-                            @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Create" class="btn btn-default" />
-                        </div>
-                    </div>
-
                 </div>
+
+                <div class="form-group">
+                    <div class="control-label col-md-2">Summary</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.BodySummary, new { htmlAttributes = new { @class = "form-control", placeholder = "Body summary" } })
+                        @Html.ValidationMessageFor(model => model.BodySummary, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Body, new { @id = "FullBody", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger", @Mode = "Encode" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <span class="control-label col-md-2">Category</span>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(x => x.CategoryId, hierarchicalCategoryList, "Select a category", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="control-label col-md-2">SEO Url</div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="SeoUrl" placeholder="SEO Url" required />
+                        @Html.ValidationMessageFor(model => model.SeoUrl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <span class="control-label col-md-2">Meta Keywords</span>
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.MetaKeywords, new { htmlAttributes = new { @class = "form-control", placeholder = "Meta tag(s)" } })
+                        <small>
+                            (Comma separated)
+                        </small>
+                        @Html.ValidationMessageFor(model => model.MetaKeywords, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="control-label col-md-2">Active</div>
+                    <div class="col-md-1">
+                        @Html.EditorFor(model => model.IsActive)
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+
+            </div>
             }
             <div>
                 <i class="fa fa-arrow-circle-left"></i> @Html.ActionLink("Back to List", "/List")

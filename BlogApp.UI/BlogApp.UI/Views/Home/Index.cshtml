@@ -8,7 +8,6 @@
 }
 
 <style>
-    
 </style>
 
 <div class="sub-title">
@@ -23,7 +22,9 @@
         @foreach (var post in Model)
         {
             <div class="post-title">
-                <a href="/Post/Detay/@post.PostId"><h1>@post.Title</h1></a>
+                <a href="/@post.SeoUrl-@post.PostId">
+                    <h1>@post.Title</h1>
+                </a>
             </div>
 
             <div class="post-info">
@@ -37,7 +38,7 @@
                 @post.BodySummary
             </p>
 
-            <a href="/Post/Detay/@post.PostId" class="button button-style button-anim fa fa-long-arrow-right"><span>Devamını oku</span></a>
+            <a href="/@post.SeoUrl-@post.PostId" class="button button-style button-anim fa fa-long-arrow-right"><span>Devamını oku</span></a>
             <hr />
         }
 

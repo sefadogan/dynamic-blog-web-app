@@ -30,6 +30,7 @@
     <EntitySetMapping Name="Posts">
       <EntityTypeMapping TypeName="BlogAppModel.Post">
         <MappingFragment StoreEntitySet="Posts">
+          <ScalarProperty Name="SeoUrl" ColumnName="SeoUrl" />
           <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
           <ScalarProperty Name="PostId" ColumnName="PostId" />
           <ScalarProperty Name="Title" ColumnName="Title" />

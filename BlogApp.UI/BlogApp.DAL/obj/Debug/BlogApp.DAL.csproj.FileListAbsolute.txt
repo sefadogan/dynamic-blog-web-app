@@ -9,3 +9,15 @@ D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.DAL\obj\Debug\BlogApp.DAL.
 D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.DAL\obj\Debug\BlogApp.DAL.csproj.CopyComplete
 D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.DAL\obj\Debug\BlogApp.DAL.dll
 D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.DAL\obj\Debug\BlogApp.DAL.pdb
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.DAL\bin\Debug\BlogApp.DAL.dll.config
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.DAL\bin\Debug\BlogApp.DAL.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.DAL\bin\Debug\BlogApp.DAL.pdb
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.DAL\bin\Debug\EntityFramework.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.DAL\bin\Debug\EntityFramework.xml
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.DAL\obj\Debug\BlogApp.DAL.csprojAssemblyReference.cache
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.DAL\obj\Debug\BlogApp.DAL.csproj.CoreCompileInputs.cache
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.DAL\obj\Debug\BlogApp.DAL.csproj.CopyComplete
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.DAL\obj\Debug\BlogApp.DAL.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.DAL\obj\Debug\BlogApp.DAL.pdb

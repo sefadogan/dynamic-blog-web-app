@@ -130,7 +130,7 @@ namespace BlogApp.UI.Areas.AdminPanel.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Create([Bind(Include = "Title, BodySummary, Body, CategoryId, MetaKeywords, IsActive")] Post model)
+        public ActionResult Create(Post model)
         {
             loggedInUser = (User)Session["LoggedInUser"];
 
@@ -183,7 +183,6 @@ namespace BlogApp.UI.Areas.AdminPanel.Controllers
 
         public void FillChildCategory(VMHierarchicalCategoryList hierarchicalCategoryList, int parentCategoryId, List<Category> allCategories, List<SelectListItem> ddlHierarchicalCategory)
         {
-            //int counter = 1;
             foreach (var item in allCategories.Where(c => c.ParentCategoryId == parentCategoryId).ToList())
             {
                 VMHierarchicalCategoryList childCategory = new VMHierarchicalCategoryList()

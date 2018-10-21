@@ -31,6 +31,7 @@ namespace BlogApp.DAL.Entity
         public int UserId { get; set; }
         public int CategoryId { get; set; }
         public string MetaKeywords { get; set; }
+        public string SeoUrl { get; set; }
     
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

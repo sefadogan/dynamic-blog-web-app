@@ -23,7 +23,7 @@
           </Key>
           <Property Name="CommentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ParentCommentId" Type="int" Nullable="false" />
-          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Status" Type="tinyint" Nullable="false" />
           <Property Name="InsertedDate" Type="datetime" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
@@ -40,10 +40,10 @@
           <Property Name="TimesDisplayed" Type="smallint" />
           <Property Name="MetaKeywords" Type="nvarchar(max)" Nullable="false" />
           <Property Name="InsertedDate" Type="datetime" Nullable="false" />
-          <Property Name="ImageUrl" Type="nvarchar(max)" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="SeoUrl" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="PostTags">
           <Key>
@@ -267,7 +267,7 @@
             <PropertyRef Name="CommentId" />
           </Key>
           <Property Name="CommentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Status" Type="Byte" Nullable="false" />
           <Property Name="InsertedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
@@ -294,6 +294,7 @@
           <NavigationProperty Name="User" Relationship="Self.FK_Posts_Users" FromRole="Posts" ToRole="Users" />
           <NavigationProperty Name="PostTags" Relationship="Self.FK_PostsTags_Posts" FromRole="Posts" ToRole="PostTags" />
           <Property Name="MetaKeywords" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SeoUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="PostTag">
           <Key>
@@ -547,6 +548,7 @@
           <EntitySetMapping Name="Posts">
             <EntityTypeMapping TypeName="BlogAppModel.Post">
               <MappingFragment StoreEntitySet="Posts">
+                <ScalarProperty Name="SeoUrl" ColumnName="SeoUrl" />
                 <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
                 <ScalarProperty Name="PostId" ColumnName="PostId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
