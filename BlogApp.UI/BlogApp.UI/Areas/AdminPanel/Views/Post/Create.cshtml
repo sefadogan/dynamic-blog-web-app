@@ -6,7 +6,6 @@
 @{
     ViewBag.Title = "Create";
     Layout = "~/Areas/AdminPanel/Views/Shared/_Layout.cshtml";
-    List<SelectListItem> hierarchicalCategoryList = ViewData["HierarchicalCategoryList"] as List<SelectListItem>;
 }
 
 <script src="~/Areas/AdminPanel/ckeditor/ckeditor.js"></script>
@@ -29,15 +28,15 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Title" } })
+                        <input type="text" class="form-control" name="Title" placeholder="Title" autocomplete="off" required/>
                         @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="control-label col-md-2">Summary</div>
+                    <div class="control-label col-md-2">Body Summary</div>
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.BodySummary, new { htmlAttributes = new { @class = "form-control", placeholder = "Body summary" } })
+                        <input type="text" class="form-control" name="BodySummary" placeholder="Body Summary" autocomplete="off" required/>
                         @Html.ValidationMessageFor(model => model.BodySummary, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -45,7 +44,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.TextAreaFor(model => model.Body, new { @id = "FullBody", @class = "form-control" })
+                        <textarea class="form-control" id="FullBody" name="Body"></textarea>
                         @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger", @Mode = "Encode" })
                     </div>
                 </div>
@@ -53,7 +52,7 @@
                 <div class="form-group">
                     <span class="control-label col-md-2">Category</span>
                     <div class="col-md-4">
-                        @Html.DropDownListFor(x => x.CategoryId, hierarchicalCategoryList, "Select a category", new { @class = "form-control" })
+                        @Html.DropDownListFor(x => x.CategoryId, ViewData["HierarchicalCategoryList"] as List<SelectListItem>, "Select a category", new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -61,7 +60,7 @@
                 <div class="form-group">
                     <div class="control-label col-md-2">SEO Url</div>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" name="SeoUrl" placeholder="SEO Url" required />
+                        <input type="text" class="form-control" name="SeoUrl" placeholder="SEO Url" autocomplete="off" required/>
                         @Html.ValidationMessageFor(model => model.SeoUrl, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -69,7 +68,7 @@
                 <div class="form-group">
                     <span class="control-label col-md-2">Meta Keywords</span>
                     <div class="col-md-4">
-                        @Html.EditorFor(model => model.MetaKeywords, new { htmlAttributes = new { @class = "form-control", placeholder = "Meta tag(s)" } })
+                        <input type="text" class="form-control" name="MetaKeywords" placeholder="Meta Keyword(s)" autocomplete="off" required />
                         <small>
                             (Comma separated)
                         </small>
