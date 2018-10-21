@@ -1,156 +1,96 @@
-﻿
-@using BlogApp.DAL.Entity
-@model User
+﻿@model BlogApp.DAL.Entity.User
 
 @{
-    ViewBag.Title = "Login";
     Layout = null;
 }
 
 <html>
-
 <head>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Login - Sefa DOĞAN Admin Panel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/img/icons/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" href="~/Areas/AdminPanel/Temp/Login/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/AdminPanel/Temp/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/AdminPanel/Temp/Login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/AdminPanel/Temp/Login/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/AdminPanel/Temp/Login/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/AdminPanel/Temp/Login/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/AdminPanel/Temp/Login/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/AdminPanel/Temp/Login/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/AdminPanel/Temp/Login/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/AdminPanel/Temp/Login/css/main.css">
 
     <style>
-        body#LoginForm {
-            background-image: url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg");
-            background-repeat: no-repeat;
-            background-position: center;
+        body {
+            background: url("../../Areas/AdminPanel/Temp/Login/images/bg-01.jpg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
             background-size: cover;
-            padding: 10px;
         }
-
-        .container {
-            margin-top: 100px;
+        .forgot-password {
+            font-size:15px;
+            color: #adadad;
         }
-
-        .form-heading {
-            color: #fff;
-            font-size: 23px;
+        .forgot-password:hover{
+            text-decoration:underline;
+            cursor: default;
+            color: #5e5e5e;
         }
-
-        .panel h2 {
-            color: #444444;
-            font-size: 18px;
-            margin: 0 0 8px 0;
-        }
-
-        .panel p {
-            color: #777777;
-            font-size: 14px;
-            margin-bottom: 30px;
-            line-height: 24px;
-        }
-
-        .login-form .form-control {
-            background: #f7f7f7 none repeat scroll 0 0;
-            border: 1px solid #d4d4d4;
-            border-radius: 4px;
-            font-size: 14px;
-            height: 50px;
-            line-height: 50px;
-        }
-
-        .main-div {
-            background: #ffffff none repeat scroll 0 0;
-            border-radius: 2px;
-            margin: 10px auto 30px;
-            max-width: 38%;
-            padding: 50px 70px 70px 71px;
-        }
-
-        .login-form .form-group {
-            margin-bottom: 10px;
-        }
-
-        .login-form {
-            text-align: center;
-        }
-
-        .forgot a {
-            color: #777777;
-            font-size: 14px;
-            text-decoration: none;
-        }
-
-        .login-form .btn.btn-primary {
-            background: #f0ad4e none repeat scroll 0 0;
-            border-color: #f0ad4e;
-            color: #ffffff;
-            font-size: 14px;
-            width: 100%;
-            height: 50px;
-            line-height: 50px;
-            padding: 0;
-        }
-
-        .forgot {
-            text-align: left;
-            margin-bottom: 30px;
-        }
-
-        .botto-text {
-            color: #ffffff;
-            font-size: 14px;
-            margin: auto;
-        }
-
-        .login-form .btn.btn-primary.reset {
-            background: #ff9900 none repeat scroll 0 0;
-        }
-
-        .back {
-            text-align: left;
-            margin-top: 10px;
-        }
-
-            .back a {
-                color: #444444;
-                font-size: 13px;
-                text-decoration: none;
-            }
     </style>
 </head>
-
-<body id="LoginForm">
-    <div class="container">
-        <div class="login-form">
-            <div class="main-div">
-                <div class="panel">
-                    <h2>ADMIN LOGIN</h2>
-                    <p>Please enter your email and password</p>
-                </div>
-
-                @{
-                    if (ViewBag.ServiceResult != null)
-                    {
-                        <div class="alert alert-@ViewBag.Type show" role="alert">
-                            @ViewBag.ServiceResult
-                        </div>
-                    }
-                }
-
-                @using (Html.BeginForm())
+<body>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100 p-t-30 p-b-50">
+                <span class="login100-form-title p-b-41">
+                    ADMIN LOGIN
+                </span>
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "login100-form validate-form p-b-33 p-t-5" }))
                 {
-                    <div class="form-group">
-                        <input type="email" class="form-control" name="Email" value="sefa@mail.com" placeholder="Email"/>
+                    <div class="wrap-input100" style="padding-bottom:0;">
+                        @{
+                            if (ViewBag.ServiceResult != null)
+                            {
+                                <div class="alert alert-@ViewBag.Type show small" role="alert" style="margin-bottom:50px;">
+                                    @ViewBag.ServiceResult
+                                </div>
+                            }
+                        }
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="Enter email">
+                        <input class="input100" type="text" name="email" placeholder="Email" autocomplete="off" value="sefa@mail.com">
+                        <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="Enter password">
+                        <input class="input100" type="password" name="password" placeholder="Password" autocomplete="off" value="123123qwe">
+                        <span class="focus-input100" data-placeholder="&#xe80f;"></span>
                     </div>
 
-                    <div class="form-group">
-                        <input type="password" class="form-control" name="Password" value="123123qwe" placeholder="Password" />
+                    <div class="container-login100-form-btn m-t-32">
+                        <button class="login100-form-btn">
+                            Login
+                        </button>
                     </div>
-
-                    <div class="forgot">
-                        <a href="">Forgot password? Check out SSMS :)</a>
+                    <div class="container-login100-form-btn m-t-32">
+                        <span class="forgot-password">Forgot password? Check out SSMS :)</span>
                     </div>
-                    <button type="submit" class="btn btn-primary">LOGIN</button>
                 }
             </div>
-            <p class="botto-text"> &copy; @DateTime.Now.Year - ChePunchkless.</p>
         </div>
     </div>
+
+    <script src="~/Areas/AdminPanel/Temp/Login/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="~/Areas/AdminPanel/Temp/Login/vendor/animsition/js/animsition.min.js"></script>
+    <script src="~/Areas/AdminPanel/Temp/Login/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Areas/AdminPanel/Temp/Login/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Areas/AdminPanel/Temp/Login/vendor/select2/select2.min.js"></script>
+    <script src="~/Areas/AdminPanel/Temp/Login/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/Areas/AdminPanel/Temp/Login/vendor/daterangepicker/daterangepicker.js"></script>
+    <script src="~/Areas/AdminPanel/Temp/Login/vendor/countdowntime/countdowntime.js"></script>
+    <script src="~/Areas/AdminPanel/Temp/Login/js/main.js"></script>
 </body>
 </html>
+
