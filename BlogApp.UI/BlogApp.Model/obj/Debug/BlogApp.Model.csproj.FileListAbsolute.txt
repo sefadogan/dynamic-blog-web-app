@@ -3,3 +3,9 @@ D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.Model\bin\Debug\BlogApp.Mo
 D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.Model\obj\Debug\BlogApp.Model.csproj.CoreCompileInputs.cache
 D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.Model\obj\Debug\BlogApp.Model.dll
 D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.Model\obj\Debug\BlogApp.Model.pdb
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.Model\bin\Debug\BlogApp.Model.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.Model\bin\Debug\BlogApp.Model.pdb
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.Model\obj\Debug\BlogApp.Model.csprojAssemblyReference.cache
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.Model\obj\Debug\BlogApp.Model.csproj.CoreCompileInputs.cache
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.Model\obj\Debug\BlogApp.Model.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.Model\obj\Debug\BlogApp.Model.pdb

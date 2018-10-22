@@ -93,9 +93,9 @@ namespace BlogApp.UI.Areas.AdminPanel.Controllers
         [HttpPost]
         public ActionResult Edit(Role model)
         {
-            //var category = new RoleService().BringById(Convert.ToInt32(Session["SelectedRoleId"]));
-            //model.CategoryId = category.CategoryId;
-            //model.ParentCategoryId = category.ParentCategoryId;
+            var role = new RoleService().BringById(Convert.ToInt32(Session["SelectedRoleId"]));
+            model.RoleId = role.RoleId;
+            model.InsertedDate = role.InsertedDate;
 
             var result = new RoleService().Update(model);
 

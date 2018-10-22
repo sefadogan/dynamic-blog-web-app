@@ -172,6 +172,12 @@ D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.UI\obj\Debug\BlogApp.UI.cs
 D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.UI\obj\Debug\BlogApp.UI.csproj.CopyComplete
 D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.UI\obj\Debug\BlogApp.UI.dll
 D:\source\repos\BlogWebSolution_v1\BlogApp.UI\BlogApp.UI\obj\Debug\BlogApp.UI.pdb
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\System.IO.Compression.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\VBCSCompiler.exe
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\BlogApp.UI.dll.config
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\BlogApp.UI.dll
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\BlogApp.UI.pdb
@@ -182,13 +188,9 @@ D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\csi.exe
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\csi.exe.config
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\csi.rsp
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\Microsoft.CodeAnalysis.dll
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\Microsoft.CSharp.Core.targets
-D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\Microsoft.VisualBasic.Core.targets
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\Microsoft.Win32.Primitives.dll
@@ -198,7 +200,6 @@ D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\System.
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\System.Diagnostics.Process.dll
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\System.Diagnostics.StackTrace.dll
-D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\System.IO.Compression.dll
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\System.IO.FileSystem.dll
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\System.IO.FileSystem.Primitives.dll
@@ -221,7 +222,6 @@ D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\System.
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\vbc.exe
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\vbc.exe.config
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\vbc.rsp
-D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\VBCSCompiler.exe
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\roslyn\VBCSCompiler.exe.config
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\BlogApp.BLL.dll
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\BlogApp.DAL.dll
