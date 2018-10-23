@@ -20,3 +20,4 @@ D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.DAL\obj\Debug\BlogApp
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.DAL\obj\Debug\BlogApp.DAL.csproj.CopyComplete
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.DAL\obj\Debug\BlogApp.DAL.dll
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.DAL\obj\Debug\BlogApp.DAL.pdb
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.DAL\obj\Debug\BlogApp.DAL.csprojAssemblyReference.cache

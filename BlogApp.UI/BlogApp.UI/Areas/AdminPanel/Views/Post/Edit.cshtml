@@ -8,9 +8,6 @@
     List<SelectListItem> hierarchicalCategoryList = ViewData["HierarchicalCategoryList"] as List<SelectListItem>;
 }
 
-<script src="~/Areas/AdminPanel/ckeditor/ckeditor.js"></script>
-<script src="~/Areas/AdminPanel/ckfinder/ckfinder.js"></script>
-
 <h3><i class="fa fa-angle-right"></i> Edit</h3>
 
 <div class="row mt">
@@ -26,7 +23,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Title", autocomplete = "off", required = "" } })
                             @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -34,7 +31,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.BodySummary, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextAreaFor(model => model.BodySummary, new { @class = "form-control", @rows = "4", @style = "resize:vertical;" })
+                            @Html.TextAreaFor(model => model.BodySummary, new { @class = "form-control", @rows = "4", @style = "resize:vertical;", placeholder = "Body Summary", autocomplete = "off", required = "" })
                             @Html.ValidationMessageFor(model => model.BodySummary, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -48,15 +45,15 @@
                     </div>
 
                     <div class="form-group">
-                        <span class="control-label col-md-2">Meta Keywords</span>
+                        @Html.LabelFor(model => model.MetaKeywords, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.MetaKeywords, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.MetaKeywords, new { htmlAttributes = new { @class = "form-control", placeholder = "Meta Keyword(s)", autocomplete = "off", required = "" } })
                             @Html.ValidationMessageFor(model => model.MetaKeywords, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <span class="control-label col-md-2">Category</span>
+                        @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-2">
                             @Html.DropDownListFor(x => x.CategoryId, hierarchicalCategoryList, "Select a category", new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
@@ -84,6 +81,9 @@
         </div>
     </div>
 </div>
+
+<script src="~/Areas/AdminPanel/ckeditor/ckeditor.js"></script>
+<script src="~/Areas/AdminPanel/ckfinder/ckfinder.js"></script>
 
 <script>
     CKEDITOR.replace("FullBody");

@@ -8,22 +8,25 @@
     Layout = "~/Areas/AdminPanel/Views/Shared/_Layout.cshtml";
 }
 
-@if (TempData["ServiceResult"] != null)
-{
-    <div class="alert alert-@TempData["AlertType"]" role="alert">
-        @TempData["ServiceResult"].ToString()
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-}
+
 
 <h3><i class="fa fa-angle-right"></i> Comment List</h3>
-<div class="col-md-2" style="float:right; margin-bottom:5px;">
-    <input class="form-control" id="inptSearch" type="text" placeholder="Search..">
-</div>
+
 <div class="row mt">
+    @if (TempData["ServiceResult"] != null)
+    {
+        <div class="alert alert-@TempData["AlertType"]" role="alert">
+            @TempData["ServiceResult"].ToString()
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+    <div class="col-md-2" style="float:right; margin-bottom:5px;">
+        <input class="form-control" id="inptSearch" type="text" placeholder="Search..">
+    </div>
     <div class="col-md-12">
+
         <div class="content-panel">
             <table class="table table-striped table-advance table-hover">
                 <thead>
