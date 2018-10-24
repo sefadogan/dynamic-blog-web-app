@@ -87,9 +87,11 @@ namespace BlogApp.UI.Areas.AdminPanel.Controllers
             }
             else
             {
-                TempData["ServiceResult"] = "There was an error while creating the user.";
-                TempData["AlertType"] = "danger";
-                return RedirectToAction("List");
+                //TempData["ServiceResult"] = "There was an error while creating the user.";
+                //TempData["AlertType"] = "danger";
+                //return RedirectToAction("List");
+                ViewData["RoleList"] = new RoleService().ListAll();
+                return View(model);
             }
         }
 
