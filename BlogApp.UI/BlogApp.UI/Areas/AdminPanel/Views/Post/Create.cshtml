@@ -8,9 +8,6 @@
     Layout = "~/Areas/AdminPanel/Views/Shared/_Layout.cshtml";
 }
 
-<script src="~/Areas/AdminPanel/ckeditor/ckeditor.js"></script>
-<script src="~/Areas/AdminPanel/ckfinder/ckfinder.js"></script>
-
 <h3><i class="fa fa-angle-right"></i> Create</h3>
 <hr />
 
@@ -21,76 +18,78 @@
             {
                 @Html.AntiForgeryToken()
 
-            <div class="form-horizontal">
+                <div class="form-horizontal">
 
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" name="Title" placeholder="Title" autocomplete="off" required/>
-                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="Title" placeholder="Title" autocomplete="off" required />
+                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="control-label col-md-2">Body Summary</div>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" name="BodySummary" placeholder="Body Summary" autocomplete="off" required/>
-                        @Html.ValidationMessageFor(model => model.BodySummary, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BodySummary, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="BodySummary" placeholder="Body Summary" autocomplete="off" required />
+                            @Html.ValidationMessageFor(model => model.BodySummary, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        <textarea class="form-control" id="FullBody" name="Body"></textarea>
-                        @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger", @Mode = "Encode" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <textarea class="form-control" id="FullBody" name="Body"></textarea>
+                            @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger", @Mode = "Encode" })
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <span class="control-label col-md-2">Category</span>
-                    <div class="col-md-4">
-                        @Html.DropDownListFor(x => x.CategoryId, ViewData["HierarchicalCategoryList"] as List<SelectListItem>, "Select a category", new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(x => x.CategoryId, ViewData["HierarchicalCategoryList"] as List<SelectListItem>, "Select a category", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="control-label col-md-2">SEO Url</div>
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" name="SeoUrl" placeholder="SEO Url" autocomplete="off" required/>
-                        @Html.ValidationMessageFor(model => model.SeoUrl, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <div class="control-label col-md-2">
+                            @Html.LabelFor(model => model.SeoUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" name="SeoUrl" placeholder="SEO Url" autocomplete="off" required />
+                            @Html.ValidationMessageFor(model => model.SeoUrl, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <span class="control-label col-md-2">Meta Keywords</span>
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" name="MetaKeywords" placeholder="Meta Keyword(s)" autocomplete="off" required />
-                        <small>
-                            (Comma separated)
-                        </small>
-                        @Html.ValidationMessageFor(model => model.MetaKeywords, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MetaKeywords, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" name="MetaKeywords" placeholder="Meta Keyword(s)" autocomplete="off" required />
+                            <small>
+                                (Comma separated)
+                            </small>
+                            @Html.ValidationMessageFor(model => model.MetaKeywords, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="control-label col-md-2">Active</div>
-                    <div class="col-md-1">
-                        @Html.EditorFor(model => model.IsActive)
-                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <div class="control-label col-md-2">Active</div>
+                        <div class="col-md-1">
+                            @Html.EditorFor(model => model.IsActive)
+                            @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="btn btn-success" />
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-success" />
+                        </div>
                     </div>
-                </div>
 
-            </div>
+                </div>
             }
             <div>
                 <i class="fa fa-arrow-circle-left"></i> @Html.ActionLink("Back to List", "/List")
@@ -98,6 +97,9 @@
         </div>
     </div>
 </div>
+
+<script src="~/Areas/AdminPanel/ckeditor/ckeditor.js"></script>
+<script src="~/Areas/AdminPanel/ckfinder/ckfinder.js"></script>
 
 <script>
     CKEDITOR.replace("FullBody");

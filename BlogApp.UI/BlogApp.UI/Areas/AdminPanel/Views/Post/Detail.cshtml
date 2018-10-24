@@ -25,9 +25,13 @@
 
                 <dd>@Html.Raw(Model.Body)</dd>
 
-                <dt>Meta Keywords</dt>
+                <dt>SEO Url<dt>
 
-                <dd>@Html.Raw(Model.MetaKeywords)</dd>
+                <dd>@Html.DisplayFor(x => x.SeoUrl)</dd>
+
+                <dt>Meta Keyword(s)</dt>
+
+                <dd>@Html.DisplayFor(x => x.MetaKeywords)</dd>
 
                 <dt>Times Displayed</dt>
 
