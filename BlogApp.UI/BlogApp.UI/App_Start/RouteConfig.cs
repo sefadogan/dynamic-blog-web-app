@@ -15,33 +15,33 @@ namespace BlogApp.UI
 
             routes.MapMvcAttributeRoutes();
 
-            //routes.MapRoute(
-            //    name: "PostDetail",
-            //    url: "Post/Detay/{id}",
-            //    defaults: new { controller = "Post", action = "Detail", id = UrlParameter.Optional },
-            //    namespaces: new[] { "BlogApp.UI.Controllers" }
-            //);
-
             routes.MapRoute(
                 name: "Contact",
-                url: "Iletisim",
+                url: "iletisim",
                 defaults: new { controller = "Home", action = "Contact" },
                 namespaces: new[] { "BlogApp.UI.Controllers" }
             );
 
             routes.MapRoute(
                 name: "About",
-                url: "Hakkimda",
+                url: "hakkimda",
                 defaults: new { controller = "Home", action = "About" },
                 namespaces: new[] { "BlogApp.UI.Controllers" }
             );
 
             routes.MapRoute(
                 name: "Home",
-                url: "Anasayfa/{categoryId}",
+                url: "anasayfa",
                 defaults: new { controller = "Home", action = "Index", categoryId = UrlParameter.Optional },
                 namespaces: new[] { "BlogApp.UI.Controllers" }
             );
+
+            //routes.MapRoute(
+            //    name: "Home",
+            //    url: "Anasayfa/{categoryId}",
+            //    defaults: new { controller = "Home", action = "Index", categoryId = UrlParameter.Optional },
+            //    namespaces: new[] { "BlogApp.UI.Controllers" }
+            //);
 
             routes.MapRoute(
                 name: "Default",

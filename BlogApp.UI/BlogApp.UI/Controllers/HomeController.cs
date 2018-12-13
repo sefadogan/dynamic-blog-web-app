@@ -12,9 +12,9 @@ namespace BlogApp.UI.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index(int page = 1, int categoryId = 1)
+        public ActionResult Index(int page = 1)
         {
-            var postList = new PostService().ListAllAsActive(categoryId).OrderByDescending(x => x.InsertedDate).ToPagedList(page, 5);
+            var postList = new PostService().ListAll().Where(x => x.IsActive == true).OrderByDescending(x=> x.InsertedDate).ToPagedList(page, 5);
             return View(postList);
         }
         public ActionResult About()

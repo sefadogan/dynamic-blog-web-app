@@ -68,7 +68,7 @@ namespace BlogApp.UI.Controllers
 
                 var commentResult = new CommentService().Add(comment);
 
-                return RedirectToAction("Detail");
+                return RedirectToAction(post.SeoUrl + "-" + post.PostId);
             }
             catch (Exception)
             {

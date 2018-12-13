@@ -64,13 +64,5 @@ namespace BlogApp.BLL.Services
         {
             return Context.Posts.ToList();
         }
-        public List<Post> ListAllAsActive(int? categoryId)
-        {
-            if(categoryId == null)
-                return Context.Posts.Where(x => x.IsActive).ToList();
-            else
-                return Context.Posts.Where(x => x.IsActive && x.CategoryId == categoryId).ToList(); // bu satırı yanlış yazmış olabilirim.
-        }
-
     }
 }
