@@ -1,0 +1,17 @@
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.BLL\bin\Release\BlogApp.BLL.dll.config
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.BLL\bin\Release\BlogApp.BLL.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.BLL\bin\Release\BlogApp.BLL.pdb
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.BLL\bin\Release\BlogApp.DAL.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.BLL\bin\Release\BlogApp.Model.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.BLL\bin\Release\EntityFramework.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.BLL\bin\Release\EntityFramework.SqlServer.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.BLL\bin\Release\BlogApp.DAL.pdb
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.BLL\bin\Release\BlogApp.DAL.dll.config
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.BLL\bin\Release\BlogApp.Model.pdb
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.BLL\bin\Release\EntityFramework.xml
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.BLL\bin\Release\EntityFramework.SqlServer.xml
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.BLL\obj\Release\BlogApp.BLL.csprojAssemblyReference.cache
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.BLL\obj\Release\BlogApp.BLL.csproj.CoreCompileInputs.cache
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.BLL\obj\Release\BlogApp.BLL.csproj.CopyComplete
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.BLL\obj\Release\BlogApp.BLL.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.BLL\obj\Release\BlogApp.BLL.pdb

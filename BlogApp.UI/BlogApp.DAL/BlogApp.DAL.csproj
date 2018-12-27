@@ -122,5 +122,11 @@
       <LastGenOutput>BlogAppEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BlogApp.Model\BlogApp.Model.csproj">
+      <Project>{15b98d65-58af-4457-8a16-61e11a8912f4}</Project>
+      <Name>BlogApp.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -21,7 +21,7 @@ namespace BlogApp.UI.Helpers
             foreach (var item in to)
                 mail.To.Add(new MailAddress(item));
 
-            mail.From = new MailAddress("iletisim@sefadogan.com");
+            mail.From = new MailAddress("info@sefadogan.com");
             mail.Subject = subject;
             mail.IsBodyHtml = true;
             mail.Body = body;
@@ -29,8 +29,8 @@ namespace BlogApp.UI.Helpers
             SmtpClient client = new SmtpClient("mail.sefadogan.com", 587);
             NetworkCredential credential = new NetworkCredential
             {
-                UserName = "iletisim@sefadogan.com",
-                Password = "Ur6mxHJV"
+                UserName = "info@sefadogan.com",
+                Password = "p~s00U8p"
             };
 
             client.UseDefaultCredentials = false;

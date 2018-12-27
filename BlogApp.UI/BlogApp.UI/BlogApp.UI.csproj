@@ -1301,8 +1301,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="images\arrow.png" />
-    <Content Include="images\comment-arrow.jpg" />
     <Content Include="images\favicon.png" />
     <Content Include="images\sd.jpg" />
     <Content Include="Scripts\bootstrap.js" />
@@ -1312,7 +1310,6 @@
     <Content Include="Areas\AdminPanel\Views\Post\Edit.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Post\Create.cshtml" />
     <Content Include="Areas\AdminPanel\Views\Post\Detail.cshtml" />
-    <Content Include="Areas\AdminPanel\Views\Account\Login2.cshtml" />
     <Content Include="Areas\AdminPanel\Temp\Dashgumfree\.DS_Store" />
     <Content Include="Areas\AdminPanel\Temp\Dashgumfree\assets\.DS_Store" />
     <Content Include="Areas\AdminPanel\Temp\Dashgumfree\assets\css\.DS_Store" />
@@ -1456,6 +1453,7 @@
     <Content Include="Areas\AdminPanel\Temp\Login\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Areas\AdminPanel\Temp\Login\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Areas\AdminPanel\Temp\Login\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

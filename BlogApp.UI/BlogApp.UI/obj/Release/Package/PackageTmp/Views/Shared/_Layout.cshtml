@@ -1,0 +1,155 @@
+﻿
+@using BlogApp.DAL.Entity
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sefa DOĞAN Kişisel Web Sitesi - @ViewBag.Title</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    @if (ViewBag.Description != null && ViewBag.Keywords != null && ViewBag.Author != null)
+    {
+        <meta name="description" content="@ViewBag.PostTitle @ViewBag.Description" />
+        <meta name="keywords" content="@ViewBag.Keywords" />
+        <meta name="author" content="@ViewBag.Author" />
+    }
+    else
+    {
+        <meta name="description" content="İlgimi çeken, yeni öğrendiğim ve işe yarar bilgileri vs. paylaştığım kişisel, basit bir bloğumdur kendileri." />
+        <meta name="keywords" content="sefa, doğan, yazılım mühendisi, blog, .net mvc" />
+    }
+
+    <meta name="owner" content="Sefa DOĞAN" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/images/favicon.png">
+
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="~/Temp/DevBlog/css/plugin.css">
+
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="~/Temp/DevBlog/css/style.css">
+
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+
+    <!-- Scripts  -->
+    <script src="~/Temp/DevBlog/js/jquery.min.js"></script>
+
+    <!-- HTML5 shiv and Respond.js support IE8 or Older for HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="rounder"></div>
+    </div>
+    <!-- Preloader End -->
+
+    <div id="main">
+        <div class="container">
+            <div class="row">
+
+                <!-- About Me (Left Sidebar) Start -->
+                <div class="col-md-3">
+                    <div class="about-fixed">
+                        <div class="my-pic">
+                            <img src="~/images/sd.jpg" alt="Sefa DOĞAN" />
+                            <a href="javascript:void(0)" class="collapsed" data-target="#menu" data-toggle="collapse"><i class="icon-menu menu"></i></a>
+                            <div id="menu" class="collapse">
+                                <ul class="menu-link">
+                                    <li><a href="/anasayfa">Anasayfa</a></li>
+                                    <li><a href="/hakkimda">Hakkımda</a></li>
+                                    <li><a href="/iletisim">İletişim</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="my-detail">
+                            <div class="white-spacing">
+                                <h1>Sefa DOĞAN</h1>
+                                <span>Junior .NET Developer</span>
+                            </div>
+                            <ul class="social-icon">
+                                <li><a href="https://twitter.com/ChePunchkless" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/sefadogan/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="https://github.com/sefadogan" target="_blank" class="github"><i class="fa fa-github"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="col-md-12" style="margin:0; padding:0;">
+                        <div class="about-fixed">
+                            <div class="my-detail">
+                                <div class="white-spacing">
+                                    <h1>Kategoriler</h1>
+                                </div>
+
+                                <ul>
+                                    <li><a href="/Anasayfa/1">Yazılım</a></li>
+                                    <li><a href="/Anasayfa/4">Oyun</a></li>
+                                </ul>
+                                @*@Html.Partial("_SidebarCategoryList", ViewData["CategoryList"] as List<Category>)*@
+
+                            </div>
+                        </div>
+                    </div>
+                        -->
+                </div>
+                <!-- About Me (Left Sidebar) End -->
+
+                <!-- Blog Post (Right Sidebar) Start -->
+                <div class="col-md-9">
+                    <div class="col-md-12 page-body">
+                        <div class="row">
+
+                            @RenderBody()
+
+                        </div>
+                    </div>
+
+                    <!-- Footer Start -->
+                    <div class="col-md-12 page-body margin-top-50 footer">
+                        <footer>
+                            <ul class="menu-link">
+                                <li><a href="/anasayfa">Anasayfa</a></li>
+                                <li><a href="/hakkimda">Hakkımda</a></li>
+                                <li><a href="/iletisim">İletişim</a></li>
+                            </ul>
+                            <div class="uipasta-credit">
+                                <p>
+                                    Coded by <a href="/hakkimda">Sefa DOGAN</a> with &hearts;
+                                </p>
+                            </div>
+                        </footer>
+                    </div>
+                    <!-- Footer End -->
+
+                </div>
+                <!-- Blog Post (Right Sidebar) End -->
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <a href="#" class="scroll-to-top">
+        <i class="fa fa-arrow-circle-up" style="font-size:35px;"></i>
+    </a>
+
+    <!-- All Javascript Plugins  -->
+    <script type="text/javascript" src="~/Temp/DevBlog/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Temp/DevBlog/js/plugin.js"></script>
+
+    <!-- Main Javascript File  -->
+    <script type="text/javascript" src="~/Temp/DevBlog/js/scripts.js"></script>
+
+</body>
+</html>

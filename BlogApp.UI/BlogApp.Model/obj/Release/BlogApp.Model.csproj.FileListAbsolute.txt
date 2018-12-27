@@ -1,0 +1,6 @@
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.Model\bin\Release\BlogApp.Model.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.Model\bin\Release\BlogApp.Model.pdb
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.Model\obj\Release\BlogApp.Model.csprojAssemblyReference.cache
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.Model\obj\Release\BlogApp.Model.csproj.CoreCompileInputs.cache
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.Model\obj\Release\BlogApp.Model.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.Model\obj\Release\BlogApp.Model.pdb

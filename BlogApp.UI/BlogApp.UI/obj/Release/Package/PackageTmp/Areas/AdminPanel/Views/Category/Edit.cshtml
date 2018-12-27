@@ -1,0 +1,70 @@
+﻿
+@using BlogApp.DAL.Entity
+@model Category
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_Layout.cshtml";
+    List<SelectListItem> hierarchicalCategoryList = ViewData["HierarchicalCategoryList"] as List<SelectListItem>;
+}
+
+<h3><i class="fa fa-angle-right"></i> Edit</h3>
+
+<div class="row mt">
+    <div class="col-md-12">
+        <a href="/AdminPanel/Category/Detail/@Model.CategoryId" class="btn btn-info btn-sm" style="margin-bottom:8px;">Detail</a>
+        <div class="content-panel" style="padding:15px;">
+            @using (Html.BeginForm(FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Name", autocomplete = "off", required = "" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", placeholder = "Description", autocomplete = "off", required = "" } })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            Parent Category
+                            <br /><small>(Optional)</small>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(x => x.ParentCategoryId, hierarchicalCategoryList, "Select a parent category", new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-1">
+                            @Html.EditorFor(model => model.IsActive)
+                            @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" class="btn btn-success" value="Update" />
+                        </div>
+                    </div>
+                </div>
+            }
+            <div>
+                <i class="fa fa-arrow-circle-left"></i> @Html.ActionLink("Back to List", "/List")
+            </div>
+        </div>
+    </div>
+</div>

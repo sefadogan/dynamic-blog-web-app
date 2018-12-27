@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Model.DataModel
 {
-    public partial class Role
+    public partial class RRole
     {
-        public Role()
+        public RRole()
         {
             Users = new HashSet<User>();
         }

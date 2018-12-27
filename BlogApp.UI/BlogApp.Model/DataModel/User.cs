@@ -26,6 +26,6 @@ namespace BlogApp.Model.DataModel
         
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
-        public virtual Role Role { get; set; }
+        public virtual RRole Role { get; set; }
     }
 }

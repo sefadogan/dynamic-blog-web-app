@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace BlogApp.BLL.Services
 {
     public class UserService : BaseService
-    {
+    {        
         public bool Add(User data)
         {
             try

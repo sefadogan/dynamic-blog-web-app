@@ -35,7 +35,7 @@ namespace BlogApp.UI.Controllers
 
             ViewData["CommentList"] = hierarchicalCommentList; // All comments about this post.
 
-            var topThreePosts = new PostService().ListAll().OrderByDescending(x => x.InsertedDate).Skip(0).Take(3).ToList();
+            var topThreePosts = new PostService().ListAll().Where(x => x.IsActive == true).OrderByDescending(x => x.InsertedDate).Skip(0).Take(3).ToList();
             ViewData["TopThreePosts"] = topThreePosts; // This is for _PartialAlsoLike.
 
             var post = new PostService().BringById(postId);
@@ -91,7 +91,7 @@ namespace BlogApp.UI.Controllers
                 };
 
                 hierarchicalCommentList.ChildComments.Add(childComment);
-                
+
 
                 FillChildComment(childComment, childComment.CommentId, allComments);
             }
