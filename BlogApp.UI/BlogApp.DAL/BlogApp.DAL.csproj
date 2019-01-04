@@ -49,6 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ICategoryRepository.cs" />
+    <Compile Include="Abstract\IBaseRepository.cs" />
+    <Compile Include="Abstract\ICommentRepository.cs" />
+    <Compile Include="Abstract\IPostRepository.cs" />
+    <Compile Include="Abstract\IRoleRepository.cs" />
+    <Compile Include="Abstract\IUserRepository.cs" />
+    <Compile Include="Concrete\BaseRepository.cs" />
+    <Compile Include="Concrete\CategoryRepository.cs" />
+    <Compile Include="Concrete\CommentRepository.cs" />
+    <Compile Include="Concrete\PostRepository.cs" />
+    <Compile Include="Concrete\RoleRepository.cs" />
+    <Compile Include="Concrete\UserRepository.cs" />
     <Compile Include="Entity\BlogAppEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -128,5 +140,6 @@
       <Name>BlogApp.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

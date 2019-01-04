@@ -54,7 +54,6 @@ namespace BlogApp.BLL.Services
             {
                 return false;
             }
-
         }
         public Category BringById(int id)
         {

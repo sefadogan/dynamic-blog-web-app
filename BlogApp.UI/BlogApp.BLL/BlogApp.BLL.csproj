@@ -47,6 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ICategoryManager.cs" />
+    <Compile Include="Abstract\ICommentManager.cs" />
+    <Compile Include="Abstract\IPostManager.cs" />
+    <Compile Include="Abstract\IRoleManager.cs" />
+    <Compile Include="Abstract\IUserManager.cs" />
+    <Compile Include="Concrete\CategoryManager.cs" />
+    <Compile Include="Concrete\CommentManager.cs" />
+    <Compile Include="Concrete\PostManager.cs" />
+    <Compile Include="Concrete\RoleManager.cs" />
+    <Compile Include="Concrete\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\CategoryService.cs" />
@@ -71,5 +81,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
