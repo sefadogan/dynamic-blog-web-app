@@ -29,7 +29,6 @@ namespace BlogApp.DAL.Concrete
             try
             {
                 Dbset.Add(entity);
-                SaveChanges();
                 return true;
             }
             catch (Exception)
@@ -54,7 +53,6 @@ namespace BlogApp.DAL.Concrete
             {
                 Dbset.Attach(entity);
                 _dbContext.Entry(entity).State = EntityState.Modified;
-                SaveChanges();
                 return true;
             }
             catch (Exception)
@@ -70,19 +68,12 @@ namespace BlogApp.DAL.Concrete
                 var entity = BringById(id);
                 Dbset.Remove(entity);
                 //category.IsActive = false;
-                SaveChanges();
                 return true;
             }
             catch (Exception)
             {
                 return false;
             }
-        }
-
-        public void SaveChanges()
-        {
-            _dbContext.SaveChanges();
-            //return (_dbContext.SaveChanges() > 1) ? true : false;
         }
     }
 }
