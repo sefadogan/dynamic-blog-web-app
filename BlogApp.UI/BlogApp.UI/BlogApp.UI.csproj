@@ -1522,6 +1522,7 @@
     <Compile Include="Areas\AdminPanel\Controllers\UserController.cs" />
     <Compile Include="Areas\AdminPanel\Filters\AutorizeUser.cs" />
     <Compile Include="Areas\AdminPanel\Models\VMHierarchyCategoryItem.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1557,6 +1558,9 @@
     <Content Include="Views\Post\Detail.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_SideBarCategoryList.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\InternalServer.cshtml" />
+    <Content Include="Views\Error\NoAuthorization.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
