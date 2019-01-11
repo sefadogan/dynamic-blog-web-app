@@ -1,18 +1,14 @@
 ﻿
 @{
-    Layout = null;
+    ViewBag.Title = "500 İç Sunucu Hatası";
+    Layout = "~/Views/Shared/_ErrorLayout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>InternalServer</title>
-</head>
-<body>
-    <div> 
-        <h1>Internal server error has occured.</h1>
+<div class="error-page">
+    <div class="error-page-type">
+        <h1>Oops!</h1>
+        <h2>500 - BEKLENMEDİK HATA OLUŞTU</h2>
     </div>
-</body>
-</html>
+    <a href="/anasayfa">ANASAYFAYA GERİ DÖN</a>
+</div>
+

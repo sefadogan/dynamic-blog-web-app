@@ -1,18 +1,14 @@
 ﻿
 @{
-    Layout = null;
+    ViewBag.Title = "500 Yetki Bulunmamakta";
+    Layout = "~/Views/Shared/_ErrorLayout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>NoAuthorization</title>
-</head>
-<body>
-    <div> 
-        <h1>You have no permission to access this page.</h1>
+<div class="error-page">
+    <div class="error-page-type">
+        <h1>Oops!</h1>
+        <h2>403 - YETKİNİZ BULUNMAMAKTA</h2>
     </div>
-</body>
-</html>
+    <a href="/anasayfa">ANASAYFAYA GERİ DÖN</a>
+</div>
+
