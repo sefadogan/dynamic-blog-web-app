@@ -25,14 +25,17 @@ namespace BlogApp.DAL.UnitOfWork
 
         public ICategoryRepository CategoryRepository => categoryRepository ?? (categoryRepository = new CategoryRepository(_context));
         public ICommentRepository CommentRepository => commentRepository ?? (commentRepository = new CommentRepository(_context));
-        public IPostRepository PostRepository => postRepository ?? (postRepository = new PostRepository(_context));
         public IRoleRepository RoleRepository => roleRepository ?? (roleRepository = new RoleRepository(_context));
         public IUserRepository UserRepository => userRepository ?? (userRepository = new UserRepository(_context));
+        public IPostRepository PostRepository => postRepository ?? (postRepository = new PostRepository(_context));
 
         public void Dispose()
         {
-            _context.Dispose();
-            GC.SuppressFinalize(this);
+            if(_context != null)
+            {
+                _context.Dispose();
+                GC.SuppressFinalize(this);
+            }
         }
         public bool SaveChanges()
         {

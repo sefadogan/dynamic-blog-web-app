@@ -190,20 +190,5 @@ namespace BlogApp.UI.Areas.AdminPanel.Controllers
                 FillChildCategory(childCategory, childCategory.CategoryId, allCategories, ddlHierarchicalCategory);
             }
         }
-
-        //public bool HasParentCategory(int categoryId, int parentId)
-        //{
-        //    Category category = new CategoryService().BringById(categoryId);
-        //    if (category == null)
-        //        return false;
-
-        //    if (category.ParentCategoryId == 0)
-        //        return false;
-
-        //    if (category.ParentCategoryId == parentId)
-        //        return true;
-
-        //    return HasParentCategory(category.ParentCategoryId, parentId);
-        //}
     }
 }

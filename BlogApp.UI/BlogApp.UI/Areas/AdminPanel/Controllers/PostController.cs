@@ -19,7 +19,7 @@ namespace BlogApp.UI.Areas.AdminPanel.Controllers
 
         public ActionResult List(int page = 1)
         {
-            var postList = new PostService().ListAll().OrderByDescending(x=>x.InsertedDate).ToPagedList(page, 20);
+            var postList = new PostService().ListAll().OrderByDescending(x => x.InsertedDate).ToPagedList(page, 20);
             return View(postList);
         }
         public ActionResult Edit(int id)
