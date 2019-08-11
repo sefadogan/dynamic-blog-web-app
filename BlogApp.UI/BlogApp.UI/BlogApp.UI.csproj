@@ -1310,6 +1310,7 @@
     <Content Include="Global.asax" />
     <Content Include="images\favicon.png" />
     <Content Include="images\sd.jpg" />
+    <Content Include="images\sd1.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\AdminPanel\Views\Shared\_Layout.cshtml" />
