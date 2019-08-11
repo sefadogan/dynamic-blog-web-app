@@ -11,6 +11,10 @@
     <AssemblyName>BlogApp.BLL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,6 +40,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -47,27 +54,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\ICategoryManager.cs" />
-    <Compile Include="Abstract\ICommentManager.cs" />
-    <Compile Include="Abstract\IPostManager.cs" />
-    <Compile Include="Abstract\IRoleManager.cs" />
-    <Compile Include="Abstract\IUserManager.cs" />
+    <Compile Include="Abstract\ICategoryService.cs" />
+    <Compile Include="Abstract\ICommentService.cs" />
+    <Compile Include="Abstract\IPostService.cs" />
+    <Compile Include="Abstract\IRoleService.cs" />
+    <Compile Include="Abstract\IUserService.cs" />
     <Compile Include="Concrete\CategoryManager.cs" />
     <Compile Include="Concrete\CommentManager.cs" />
     <Compile Include="Concrete\PostManager.cs" />
     <Compile Include="Concrete\RoleManager.cs" />
     <Compile Include="Concrete\UserManager.cs" />
+    <Compile Include="DependencyResolvers\Ninject\BusinessModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\BaseService.cs" />
-    <Compile Include="Services\CategoryService.cs" />
-    <Compile Include="Services\CommentService.cs" />
-    <Compile Include="Services\PostService.cs" />
-    <Compile Include="Services\PostTagService.cs" />
-    <Compile Include="Services\RoleService.cs" />
-    <Compile Include="Services\TagService.cs" />
-    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BlogApp.Core\BlogApp.Core.csproj">
+      <Project>{7b986b6f-a387-4f6f-a557-741118fc6989}</Project>
+      <Name>BlogApp.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BlogApp.DAL\BlogApp.DAL.csproj">
       <Project>{efffda7e-4b1d-43fe-a2fb-9f96e00b5185}</Project>
       <Name>BlogApp.DAL</Name>

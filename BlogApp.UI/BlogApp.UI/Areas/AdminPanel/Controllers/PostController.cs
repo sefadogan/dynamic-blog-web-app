@@ -1,76 +1,52 @@
 ﻿
-using BlogApp.BLL.Services;
+using BlogApp.BLL.Abstract;
 using BlogApp.DAL.Entity;
 using BlogApp.Model.ViewModel;
+using BlogApp.UI.Areas.AdminPanel.Filters;
 using PagedList;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BlogApp.UI.Areas.AdminPanel.Controllers
 {
-    [Filters.AutorizeUser]
+    [CustomAuthorization]
     public class PostController : Controller
     {
-        User loggedInUser = new User();
+        private User loggedInUser = new User();
+        private readonly IPostService _postService;
+        private readonly ICategoryService _categoryService;
+
+        public PostController(
+            IPostService postService,
+            ICategoryService categoryService)
+        {
+            _postService = postService;
+            _categoryService = categoryService;
+        }
 
         public ActionResult List(int page = 1)
         {
-            var postList = new PostService().ListAll().OrderByDescending(x => x.InsertedDate).ToPagedList(page, 20);
+            var postList = _postService.GetList().OrderByDescending(x => x.InsertedDate).ToPagedList(page, 20);
             return View(postList);
         }
         public ActionResult Edit(int id)
         {
             Session["SelectedPostId"] = id; // Bilgiler post edildiğinde post metodunda yakalayabilmek adına oluşturuldu.
-            var post = new PostService().BringById(id);
+            var post = _postService.Get(p => p.PostId == id);
 
-            //ViewData["CategoryList"] = new CategoryService().ListAll();
-
-            if (post != null)
-            {
-                List<SelectListItem> ddlHierarchicalCategory = new List<SelectListItem>();
-                List<VMHierarchicalCategoryList> hierarchicalCategoryList = new List<VMHierarchicalCategoryList>();
-
-                List<Category> allCategories = new CategoryService().ListAll().Where(c => c.IsActive).ToList();
-                foreach (var item in allCategories.Where(c => c.ParentCategoryId == 0).ToList())
-                {
-                    VMHierarchicalCategoryList parentCategory = new VMHierarchicalCategoryList()
-                    {
-                        CategoryId = item.CategoryId,
-                        Name = item.Name,
-                        Description = item.Description
-                    };
-
-                    ddlHierarchicalCategory.Add(new SelectListItem()
-                    {
-                        Text = "• " + item.Name,
-                        Value = item.CategoryId.ToString()
-                    });
-
-                    FillChildCategory(parentCategory, item.CategoryId, allCategories, ddlHierarchicalCategory);
-                    hierarchicalCategoryList.Add(parentCategory);
-                }
-
-                ViewData["HierarchicalCategoryList"] = ddlHierarchicalCategory;
-
-                return View(post);
-            }
-            else
+            if (post == null)
             {
                 TempData["ServiceResult"] = "There was an error while viewing the post.";
                 TempData["AlertType"] = "danger";
                 return RedirectToAction("List");
             }
-        }
-        public ActionResult Create()
-        {
+
             List<SelectListItem> ddlHierarchicalCategory = new List<SelectListItem>();
             List<VMHierarchicalCategoryList> hierarchicalCategoryList = new List<VMHierarchicalCategoryList>();
 
-            List<Category> allCategories = new CategoryService().ListAll().Where(c => c.IsActive).ToList();
+            List<Category> allCategories = _categoryService.GetList().Where(c => c.IsActive).ToList();
             foreach (var item in allCategories.Where(c => c.ParentCategoryId == 0).ToList())
             {
                 VMHierarchicalCategoryList parentCategory = new VMHierarchicalCategoryList()
@@ -91,40 +67,61 @@ namespace BlogApp.UI.Areas.AdminPanel.Controllers
             }
 
             ViewData["HierarchicalCategoryList"] = ddlHierarchicalCategory;
+            return View(post);
+        }
+        public ActionResult Create()
+        {
+            List<SelectListItem> ddlHierarchicalCategory = new List<SelectListItem>();
+            List<VMHierarchicalCategoryList> hierarchicalCategoryList = new List<VMHierarchicalCategoryList>();
 
+            var allCategories = _categoryService.GetList().Where(c => c.IsActive).ToList();
+            foreach (var item in allCategories.Where(c => c.ParentCategoryId == 0).ToList())
+            {
+                VMHierarchicalCategoryList parentCategory = new VMHierarchicalCategoryList()
+                {
+                    CategoryId = item.CategoryId,
+                    Name = item.Name,
+                    Description = item.Description
+                };
+
+                ddlHierarchicalCategory.Add(new SelectListItem()
+                {
+                    Text = "• " + item.Name,
+                    Value = item.CategoryId.ToString()
+                });
+
+                FillChildCategory(parentCategory, item.CategoryId, allCategories, ddlHierarchicalCategory);
+                hierarchicalCategoryList.Add(parentCategory);
+            }
+
+            ViewData["HierarchicalCategoryList"] = ddlHierarchicalCategory;
             return View();
         }
         public ActionResult Detail(int id)
         {
-            var post = new PostService().BringById(id);
-
-            if (post != null)
-            {
-                return View(post);
-            }
-            else
+            var post = _postService.Get(p => p.PostId == id);
+            if (post == null)
             {
                 TempData["ServiceResult"] = "There was an error while viewing the post.";
                 TempData["AlertType"] = "danger";
                 return RedirectToAction("List");
             }
+
+            return View(post);
         }
         public ActionResult Delete(int id)
         {
-            var result = new PostService().Delete(id);
-
-            if (result)
-            {
-                TempData["ServiceResult"] = "Post delete process was successful.";
-                TempData["AlertType"] = "success";
-                return RedirectToAction("List");
-            }
-            else
+            var result = _postService.Delete(id);
+            if (!result)
             {
                 TempData["ServiceResult"] = "There was an error while updating the post.";
                 TempData["AlertType"] = "danger";
                 return RedirectToAction("List");
             }
+
+            TempData["ServiceResult"] = "Post delete process was successful.";
+            TempData["AlertType"] = "success";
+            return RedirectToAction("List");
         }
 
         [HttpPost]
@@ -138,47 +135,49 @@ namespace BlogApp.UI.Areas.AdminPanel.Controllers
             model.InsertedDate = DateTime.Now;
             model.TimesDisplayed = 0;
 
-            var result = new PostService().Add(model);
-            if (result)
-            {
-                TempData["ServiceResult"] = "Post create process was successful.";
-                TempData["AlertType"] = "success";
-                return RedirectToAction("List");
-            }
-            else
+            var result = _postService.Add(model);
+            if (!result)
             {
                 TempData["ServiceResult"] = "There was an error while creating the post.";
                 TempData["AlertType"] = "danger";
                 return RedirectToAction("List");
             }
+
+            TempData["ServiceResult"] = "Post create process was successful.";
+            TempData["AlertType"] = "success";
+            return RedirectToAction("List");
         }
-        
+
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult Edit(Post model)
         {
             loggedInUser = (User)Session["LoggedInUser"];
 
-            var post = new PostService().BringById(Convert.ToInt32(Session["SelectedPostId"]));
-            model.UserId = loggedInUser.UserId;
-            model.PostId = post.PostId;
-            model.TimesDisplayed = post.TimesDisplayed;
-            model.InsertedDate = post.InsertedDate;
+            var convertedPostId = Convert.ToInt32(Session["SelectedPostId"]); // "Get Method" is taking a paramater as expression. So i converted session id then compared them.
+            var post = _postService.Get(p => p.PostId == convertedPostId);
 
-            var result = new PostService().Update(model);
+            // TODO : refactor
+            post.Body = model.Body;
+            post.BodySummary = model.BodySummary;
+            post.CategoryId = model.CategoryId;
+            post.IsActive = model.IsActive;
+            post.MetaKeywords = model.MetaKeywords;
+            post.SeoUrl = model.SeoUrl;
+            post.Title = model.Title;
+            post.UserId = loggedInUser.UserId;
 
-            if (result)
-            {
-                TempData["ServiceResult"] = "Post update process was successful.";
-                TempData["AlertType"] = "success";
-                return RedirectToAction("List");
-            }
-            else
+            var result = _postService.Update(post);
+            if (!result)
             {
                 TempData["ServiceResult"] = "There was an error while updating the post.";
                 TempData["AlertType"] = "danger";
                 return RedirectToAction("List");
             }
+
+            TempData["ServiceResult"] = "Post update process was successful.";
+            TempData["AlertType"] = "success";
+            return RedirectToAction("List");
         }
 
         public void FillChildCategory(VMHierarchicalCategoryList hierarchicalCategoryList, int parentCategoryId, List<Category> allCategories, List<SelectListItem> ddlHierarchicalCategory)

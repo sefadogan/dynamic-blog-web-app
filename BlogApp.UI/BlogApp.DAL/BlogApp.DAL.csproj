@@ -11,6 +11,10 @@
     <AssemblyName>BlogApp.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,18 +53,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\ICategoryRepository.cs" />
-    <Compile Include="Abstract\IBaseRepository.cs" />
-    <Compile Include="Abstract\ICommentRepository.cs" />
-    <Compile Include="Abstract\IPostRepository.cs" />
-    <Compile Include="Abstract\IRoleRepository.cs" />
-    <Compile Include="Abstract\IUserRepository.cs" />
-    <Compile Include="Concrete\BaseRepository.cs" />
-    <Compile Include="Concrete\CategoryRepository.cs" />
-    <Compile Include="Concrete\CommentRepository.cs" />
-    <Compile Include="Concrete\PostRepository.cs" />
-    <Compile Include="Concrete\RoleRepository.cs" />
-    <Compile Include="Concrete\UserRepository.cs" />
+    <Compile Include="Abstract\ICategoryDal.cs" />
+    <Compile Include="Abstract\ICommentDal.cs" />
+    <Compile Include="Abstract\IPostDal.cs" />
+    <Compile Include="Abstract\IRoleDal.cs" />
+    <Compile Include="Abstract\IUserDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfCategoryDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfCommentDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfPostDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfRoleDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfUserDal.cs" />
     <Compile Include="Entity\BlogAppEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -107,8 +109,6 @@
       <DependentUpon>BlogAppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
-    <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -137,6 +137,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BlogApp.Core\BlogApp.Core.csproj">
+      <Project>{7B986B6F-A387-4F6F-A557-741118FC6989}</Project>
+      <Name>BlogApp.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BlogApp.Model\BlogApp.Model.csproj">
       <Project>{15b98d65-58af-4457-8a16-61e11a8912f4}</Project>
       <Name>BlogApp.Model</Name>

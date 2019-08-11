@@ -3,44 +3,40 @@ using BlogApp.DAL.Abstract;
 using BlogApp.DAL.Entity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace BlogApp.BLL.Concrete
 {
-    public class CategoryManager : ICategoryManager
+    public class CategoryManager : ICategoryService
     {
-        private readonly ICategoryRepository _repository;
+        private ICategoryDal _categoryDal;
 
-        public CategoryManager(ICategoryRepository category)
+        public CategoryManager(ICategoryDal categoryDal)
         {
-            _repository = category;
+            _categoryDal = categoryDal;
         }
 
-        public bool Add(Category data)
+        public bool Add(Category category)
         {
-            return _repository.Add(data);
+            return _categoryDal.Add(category);
         }
-
-        public bool Update(Category data)
-        {
-            return _repository.Add(data);
-        }
-
         public bool Delete(int id)
         {
-            return _repository.Delete(id);
+            return _categoryDal.Delete(id);
         }
-
-        public Category BringById(int id)
+        public Category Get(Expression<Func<Category, bool>> filter)
         {
-            return _repository.BringById(id);
+            return _categoryDal.Get(filter);
         }
-
-        public List<Category> ListAll()
+        public List<Category> GetList(Expression<Func<Category, bool>> filter = null)
         {
-            return _repository.ListAll();
+            return filter == null
+                ? _categoryDal.GetList()
+                : _categoryDal.GetList(filter);
+        }
+        public bool Update(Category category)
+        {
+            return _categoryDal.Update(category);
         }
     }
 }

@@ -1,76 +1,77 @@
-﻿using BlogApp.BLL.Services;
+﻿using BlogApp.BLL.Abstract;
 using BlogApp.DAL.Entity;
+using BlogApp.UI.Areas.AdminPanel.Filters;
 using PagedList;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BlogApp.UI.Areas.AdminPanel.Controllers
 {
-    [Filters.AutorizeUser]
+    [CustomAuthorization]
     public class UserController : Controller
     {
+        private readonly IUserService _userService;
+        private readonly IRoleService _roleService;
+
+        public UserController(
+            IUserService userService,
+            IRoleService roleService)
+        {
+            _userService = userService;
+            _roleService = roleService;
+        }
+
         public ActionResult List(int page = 1)
         {
-            var userList = new UserService().ListAll().OrderByDescending(x => x.InsertedDate).ToPagedList(page, 20);
+            var userList = _userService.GetList().OrderByDescending(x => x.InsertedDate).ToPagedList(page, 20);
             return View(userList);
         }
         public ActionResult Edit(int id)
         {
-
             Session["SelectedUserId"] = id; // Bilgiler post edildiğinde post metodunda yakalayabilmek adına oluşturuldu.
-            var user = new UserService().BringById(id);
 
-            if (user != null)
-            {
-                ViewData["RoleList"] = new RoleService().ListAll();
-                return View(user);
-            }
-            else
+            var user = _userService.Get(u => u.UserId == id);
+            if (user == null)
             {
                 TempData["ServiceResult"] = "There was an error while viewing the user.";
                 TempData["AlertType"] = "danger";
                 return RedirectToAction("List");
             }
+
+            ViewData["RoleList"] = _roleService.GetList();
+            return View(user);
         }
         public ActionResult Create()
         {
-            ViewData["RoleList"] = new RoleService().ListAll();
+            ViewData["RoleList"] = _roleService.GetList();
             return View();
         }
         public ActionResult Detail(int id)
         {
-            var user = new UserService().BringById(id);
-
-            if (user != null)
-            {
-                return View(user);
-            }
-            else
+            var user = _userService.Get(u => u.UserId == id);
+            if (user == null)
             {
                 TempData["ServiceResult"] = "There was an error while viewing the user.";
                 TempData["AlertType"] = "danger";
                 return RedirectToAction("List");
             }
+
+            return View(user);
         }
         public ActionResult Delete(int id)
         {
-            var result = new UserService().Delete(id);
-
-            if (result)
-            {
-                TempData["ServiceResult"] = "User delete process was successful.";
-                TempData["AlertType"] = "success";
-                return RedirectToAction("List");
-            }
-            else
+            var result = _userService.Delete(id);
+            if (!result)
             {
                 TempData["ServiceResult"] = "There was an error while deleting the user.";
                 TempData["AlertType"] = "danger";
                 return RedirectToAction("List");
             }
+
+            TempData["ServiceResult"] = "User delete process was successful.";
+            TempData["AlertType"] = "success";
+            return RedirectToAction("List");
         }
 
         [HttpPost]
@@ -78,45 +79,46 @@ namespace BlogApp.UI.Areas.AdminPanel.Controllers
         {
             model.InsertedDate = DateTime.Now;
 
-            var result = new UserService().Add(model);
-            if (result)
-            {
-                TempData["ServiceResult"] = "User create process was successful.";
-                TempData["AlertType"] = "success";
-                return RedirectToAction("List");
-            }
-            else
+            var result = _userService.Add(model);
+            if (!result)
             {
                 //TempData["ServiceResult"] = "There was an error while creating the user.";
                 //TempData["AlertType"] = "danger";
                 //return RedirectToAction("List");
-                ViewData["RoleList"] = new RoleService().ListAll();
+                ViewData["RoleList"] = _roleService.GetList();
                 return View(model);
             }
+
+            TempData["ServiceResult"] = "User create process was successful.";
+            TempData["AlertType"] = "success";
+            return RedirectToAction("List");
         }
 
         [HttpPost]
         public ActionResult Edit(User model)
         {
-            var user = new UserService().BringById(Convert.ToInt32(Session["SelectedUserId"]));
+            int convertedUserId = Convert.ToInt32(Session["SelectedUserId"]); // "Get Method" is taking a paramater as expression. So i converted session id then compared them.
 
-            model.UserId = user.UserId;
-            model.InsertedDate = user.InsertedDate;
+            var user = _userService.Get(u => u.UserId == convertedUserId);
+            user.Email = model.Email;
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+            user.IsActive = model.IsActive;
+            user.Password = model.Password;
+            user.RoleId = model.RoleId;
+            user.Username = model.Username;
 
-            var result = new UserService().Update(model);
-
-            if (result)
-            {
-                TempData["ServiceResult"] = "User update process was successful.";
-                TempData["AlertType"] = "success";
-                return RedirectToAction("List");
-            }
-            else
+            var result = _userService.Update(user);
+            if (!result)
             {
                 TempData["ServiceResult"] = "There was an error while updating the user.";
                 TempData["AlertType"] = "danger";
                 return RedirectToAction("List");
             }
+
+            TempData["ServiceResult"] = "User update process was successful.";
+            TempData["AlertType"] = "success";
+            return RedirectToAction("List");
         }
     }
 }

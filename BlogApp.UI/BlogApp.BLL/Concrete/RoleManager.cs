@@ -3,40 +3,40 @@ using BlogApp.DAL.Abstract;
 using BlogApp.DAL.Entity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace BlogApp.BLL.Concrete
 {
-    public class RoleManager : IRoleManager
+    public class RoleManager : IRoleService
     {
-        private readonly IRoleRepository _repository;
+        IRoleDal _roleDal;
 
-        public RoleManager(IRoleRepository repository)
+        public RoleManager(IRoleDal roleDal)
         {
-            _repository = repository;
+            _roleDal = roleDal;
         }
 
-        public bool Add(Role data)
+        public bool Add(Role role)
         {
-            return _repository.Add(data);
-        }
-        public Role BringById(int id)
-        {
-            return _repository.BringById(id);
+            return _roleDal.Add(role);
         }
         public bool Delete(int id)
         {
-            return _repository.Delete(id);
+            return _roleDal.Delete(id);
         }
-        public List<Role> ListAll()
+        public Role Get(Expression<Func<Role, bool>> filter)
         {
-            return _repository.ListAll();
+            return _roleDal.Get(filter);
         }
-        public bool Update(Role data)
+        public List<Role> GetList(Expression<Func<Role, bool>> filter = null)
         {
-            return _repository.Update(data);
+            return filter == null
+                ? _roleDal.GetList()
+                : _roleDal.GetList(filter);
+        }
+        public bool Update(Role role)
+        {
+            return _roleDal.Update(role);
         }
     }
 }

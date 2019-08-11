@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.BLL", "BlogApp.BLL\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.Model", "BlogApp.Model\BlogApp.Model.csproj", "{15B98D65-58AF-4457-8A16-61E11A8912F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.Core", "BlogApp.Core\BlogApp.Core.csproj", "{7B986B6F-A387-4F6F-A557-741118FC6989}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,11 +35,36 @@ Global
 		{15B98D65-58AF-4457-8A16-61E11A8912F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15B98D65-58AF-4457-8A16-61E11A8912F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15B98D65-58AF-4457-8A16-61E11A8912F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B986B6F-A387-4F6F-A557-741118FC6989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B986B6F-A387-4F6F-A557-741118FC6989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B986B6F-A387-4F6F-A557-741118FC6989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B986B6F-A387-4F6F-A557-741118FC6989}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E017D8DF-F084-4196-86A6-D1D637C1148B}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://personalblogwebapp.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BlogApp.BLL\\BlogApp.BLL.csproj
+		SccProjectName1 = BlogApp.BLL
+		SccLocalPath1 = BlogApp.BLL
+		SccProjectUniqueName2 = BlogApp.DAL\\BlogApp.DAL.csproj
+		SccProjectName2 = BlogApp.DAL
+		SccLocalPath2 = BlogApp.DAL
+		SccProjectUniqueName3 = BlogApp.Model\\BlogApp.Model.csproj
+		SccProjectName3 = BlogApp.Model
+		SccLocalPath3 = BlogApp.Model
+		SccProjectUniqueName4 = BlogApp.UI\\BlogApp.UI.csproj
+		SccProjectName4 = BlogApp.UI
+		SccLocalPath4 = BlogApp.UI
+		SccProjectUniqueName5 = BlogApp.Core\\BlogApp.Core.csproj
+		SccProjectName5 = BlogApp.Core
+		SccLocalPath5 = BlogApp.Core
 	EndGlobalSection
 EndGlobal

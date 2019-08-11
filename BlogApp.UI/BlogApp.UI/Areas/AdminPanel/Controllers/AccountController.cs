@@ -1,31 +1,31 @@
-﻿using BlogApp.BLL.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using BlogApp.BLL.Abstract;
 using System.Web.Mvc;
 
 namespace BlogApp.UI.Areas.AdminPanel.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly IUserService _userService;
+
+        public AccountController(IUserService userService)
+        {
+            _userService = userService;
+        }
+
         public ActionResult Login()
         {
-            if (Session["UserIsLogedIn"] != null)
-            {
-                return RedirectToAction("List", "Post");
-            }
-            else
+            if (Session["UserIsLogedIn"] == null)
             {
                 return View();
             }
+
+            return RedirectToAction("List", "Post");
         }
 
         [HttpPost]
         public ActionResult Login(string email, string password)
         {
-            var user = new UserService().Login(email, password);
-
+            var user = _userService.Login(email, password);
             if (user != null && user.Role.Name.Trim() == "Admin")
             {
                 Session["UserIsLogedIn"] = true;

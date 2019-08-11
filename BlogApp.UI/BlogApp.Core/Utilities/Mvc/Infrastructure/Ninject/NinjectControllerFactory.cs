@@ -1,0 +1,28 @@
+﻿using Ninject;
+using Ninject.Modules;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web.Mvc;
+using System.Web.Routing;
+
+namespace BlogApp.Core.Utilities.Mvc.Infrastructure.Ninject
+{
+    // DefaultControllerFactory ------> ctrl + . şeklinde gelmez. Nugget package'dan Microsoft.AspNet.Mvc yüklenmeli.
+    public class NinjectControllerFactory : DefaultControllerFactory
+    {
+        IKernel _kernel;
+
+        public NinjectControllerFactory(params INinjectModule[] modules)
+        {
+            _kernel = new StandardKernel(modules);
+        }
+
+        protected override IController GetControllerInstance(RequestContext reguestContext, Type controllerType)
+        {
+            return controllerType == null ? null : (IController)_kernel.Get(controllerType);
+        }
+    }
+}

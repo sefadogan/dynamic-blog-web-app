@@ -1,21 +1,26 @@
 ﻿
-using BlogApp.BLL.Services;
+using BlogApp.BLL.Abstract;
 using BlogApp.UI.Helpers;
 using PagedList;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BlogApp.UI.Controllers
 {
     public class HomeController : Controller
     {
+        private IPostService _postService;
+
+        public HomeController(IPostService postService)
+        {
+            _postService = postService;
+        }
+
         public ActionResult Index(int page = 1)
         {
-            var postList = new PostService().ListAll().Where(x => x.IsActive == true).OrderByDescending(x=> x.InsertedDate).ToPagedList(page, 5);
-            return View(postList);
+            var posts = _postService.GetList(x=>x.IsActive).OrderByDescending(x => x.InsertedDate).ToPagedList(page, 5);
+            return View(posts);
         }
         public ActionResult About()
         {
@@ -25,8 +30,7 @@ namespace BlogApp.UI.Controllers
         {
             return View();
         }
-
-        public ActionResult SendEmail(string name, string surname, string email, string message)
+        public JsonResult SendEmail(string name, string surname, string email, string message)
         {
             JsonResult jsonResult = new JsonResult();
 

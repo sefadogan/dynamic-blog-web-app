@@ -3,44 +3,40 @@ using BlogApp.DAL.Abstract;
 using BlogApp.DAL.Entity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace BlogApp.BLL.Concrete
 {
-    public class CommentManager : ICommentManager
+    public class CommentManager : ICommentService
     {
-        private readonly ICommentRepository _repository;
+        private ICommentDal _commentDal;
 
-        public CommentManager(ICommentRepository repository)
+        public CommentManager(ICommentDal commentDal)
         {
-            _repository = repository;
+            _commentDal = commentDal;
         }
 
-        public bool Add(Comment data)
+        public bool Add(Comment comment)
         {
-            return _repository.Add(data);
+            return _commentDal.Add(comment);
         }
-
-        public Comment BringById(int id)
-        {
-            return _repository.BringById(id);
-        }
-
         public bool Delete(int id)
         {
-            return _repository.Delete(id);
+            return _commentDal.Delete(id);
         }
-
-        public List<Comment> ListAll()
+        public Comment Get(Expression<Func<Comment, bool>> filter)
         {
-            return _repository.ListAll();
+            return _commentDal.Get(filter);
         }
-
-        public bool Update(Comment data)
+        public List<Comment> GetList(Expression<Func<Comment, bool>> filter = null)
         {
-            return _repository.Update(data);
+            return filter == null
+                ? _commentDal.GetList()
+                : _commentDal.GetList(filter);
+        }
+        public bool Update(Comment comment)
+        {
+            return _commentDal.Update(comment);
         }
     }
 }

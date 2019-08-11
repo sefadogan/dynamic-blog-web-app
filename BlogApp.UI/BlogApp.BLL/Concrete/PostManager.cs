@@ -3,40 +3,40 @@ using BlogApp.DAL.Abstract;
 using BlogApp.DAL.Entity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace BlogApp.BLL.Concrete
 {
-    public class PostManager : IPostManager
+    public class PostManager : IPostService
     {
-        private readonly IPostRepository _repository;
+        private IPostDal _postDal;
 
-        public PostManager(IPostRepository repository)
+        public PostManager(IPostDal postDal)
         {
-            _repository = repository;
+            _postDal = postDal;
         }
 
-        public bool Add(Post data)
+        public bool Add(Post post)
         {
-            return _repository.Add(data);
-        }
-        public Post BringById(int id)
-        {
-            return _repository.BringById(id);
+            return _postDal.Add(post);
         }
         public bool Delete(int id)
         {
-            return _repository.Delete(id);
+            return _postDal.Delete(id);
         }
-        public List<Post> ListAll()
+        public Post Get(Expression<Func<Post, bool>> filter)
         {
-            return _repository.ListAll();
+            return _postDal.Get(filter);
         }
-        public bool Update(Post data)
+        public List<Post> GetList(Expression<Func<Post, bool>> filter = null)
         {
-            return _repository.Update(data);
+            return filter == null
+                ? _postDal.GetList()
+                : _postDal.GetList(filter);
+        }
+        public bool Update(Post post)
+        {
+            return _postDal.Update(post);
         }
     }
 }

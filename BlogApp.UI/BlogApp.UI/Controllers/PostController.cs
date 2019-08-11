@@ -1,22 +1,36 @@
-﻿using BlogApp.BLL.Services;
+﻿using BlogApp.BLL.Abstract;
 using BlogApp.DAL.Entity;
 using BlogApp.Model.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BlogApp.UI.Controllers
 {
     public class PostController : Controller
     {
+        // TODO : Gonna implement "Unit of work" pattern.
+        private readonly IPostService _postService;
+        private readonly ICommentService _commentService;
+        private readonly IUserService _userService;
+
+        public PostController(
+            IPostService postService,
+            ICommentService commentService,
+            IUserService userService)
+        {
+            _postService = postService;
+            _commentService = commentService;
+            _userService = userService;
+        }
+
         [Route("{seoUrl}-{postId:int}")]
         public ActionResult Detail(int postId)
         {
             List<VMHierarchicalCommentList> hierarchicalCommentList = new List<VMHierarchicalCommentList>();
 
-            List<Comment> allComments = new CommentService().ListAll().Where(c => c.Status == 1 && c.PostId == postId).ToList(); // 0: Passive, 1: Active, 2: Pending.
+            var allComments = _commentService.GetList().Where(c => c.Status == 1 && c.PostId == postId).ToList(); // 0: Passive, 1: Active, 2: Pending.
             foreach (var item in allComments.Where(c => c.ParentCommentId == 0).ToList())
             {
                 VMHierarchicalCommentList parentComment = new VMHierarchicalCommentList()
@@ -35,45 +49,11 @@ namespace BlogApp.UI.Controllers
 
             ViewData["CommentList"] = hierarchicalCommentList; // All comments about this post.
 
-            var topThreePosts = new PostService().ListAll().Where(x => x.IsActive == true).OrderByDescending(x => x.InsertedDate).Skip(0).Take(3).ToList();
+            var topThreePosts = _postService.GetList().Where(x => x.IsActive == true).OrderByDescending(x => x.InsertedDate).Skip(0).Take(3).ToList();
             ViewData["TopThreePosts"] = topThreePosts; // This is for _PartialAlsoLike.
 
-            var post = new PostService().BringById(postId);
+            var post = _postService.Get(p => p.PostId == postId);
             return View(post);
-        }
-
-        public ActionResult SendComment(User user, int postId, string text, int parentId = 0)
-        {
-            try
-            {
-                var post = new PostService().BringById(postId);
-
-                user.InsertedDate = DateTime.Now;
-                user.IsActive = true;
-                user.RoleId = 4;
-
-                var userResult = new UserService().Add(user);
-                if (!userResult)
-                    return View();
-
-                Comment comment = new Comment
-                {
-                    PostId = postId,
-                    InsertedDate = DateTime.Now,
-                    ParentCommentId = parentId,
-                    Status = 2,
-                    Text = text,
-                    UserId = user.UserId
-                };
-
-                var commentResult = new CommentService().Add(comment);
-
-                return RedirectToAction(post.SeoUrl + "-" + post.PostId);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
         }
 
         public void FillChildComment(VMHierarchicalCommentList hierarchicalCommentList, int parentCommentId, List<Comment> allComments)

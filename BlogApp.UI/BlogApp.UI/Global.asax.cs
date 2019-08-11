@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BlogApp.BLL.DependencyResolvers.Ninject;
+using BlogApp.Core.Utilities.Mvc.Infrastructure.Ninject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +15,8 @@ namespace BlogApp.UI
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory(new BusinessModule()));
         }
     }
 }

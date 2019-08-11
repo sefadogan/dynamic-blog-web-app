@@ -1,15 +1,9 @@
-﻿using BlogApp.BLL.Services;
-using BlogApp.DAL.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using BlogApp.UI.Areas.AdminPanel.Filters;
 using System.Web.Mvc;
-using System.Web.Security;
 
 namespace BlogApp.UI.Areas.AdminPanel.Controllers
 {
-    [Filters.AutorizeUser]
+    [CustomAuthorization]
     public class HomeController : Controller
     {
         public ActionResult Dashboard()

@@ -3,40 +3,45 @@ using BlogApp.DAL.Abstract;
 using BlogApp.DAL.Entity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace BlogApp.BLL.Concrete
 {
-    public class UserManager : IUserManager
+    public class UserManager : IUserService
     {
-        private readonly IUserRepository _repository;
+        private readonly IUserDal _userDal;
 
-        public UserManager(IUserRepository repository)
+        public UserManager(IUserDal userDal)
         {
-            _repository = repository;
+            _userDal = userDal;
         }
 
-        public bool Add(User data)
+        public User Login(string email, string password)
         {
-            return _repository.Add(data);
+            var user = Get(x => x.Email == email && x.Password == password);
+            return user;
         }
-        public User BringById(int id)
+        public bool Add(User user)
         {
-            return _repository.BringById(id);
+            return _userDal.Add(user);
         }
         public bool Delete(int id)
         {
-            return _repository.Delete(id);
+            return _userDal.Delete(id);
         }
-        public List<User> ListAll()
+        public User Get(Expression<Func<User, bool>> filter)
         {
-            return _repository.ListAll();
+            return _userDal.Get(filter);
         }
-        public bool Update(User data)
+        public List<User> GetList(Expression<Func<User, bool>> filter = null)
         {
-            return _repository.Update(data);
+            return filter == null
+                ? _userDal.GetList()
+                : _userDal.GetList(filter);
+        }
+        public bool Update(User user)
+        {
+            return _userDal.Update(user);
         }
     }
 }
