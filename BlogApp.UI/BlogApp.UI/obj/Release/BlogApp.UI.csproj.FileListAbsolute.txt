@@ -87,3 +87,8 @@ D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\obj\Release\BlogAp
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\obj\Release\BlogApp.UI.csproj.CopyComplete
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\obj\Release\BlogApp.UI.dll
 D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\obj\Release\BlogApp.UI.pdb
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\BlogApp.Core.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\Ninject.dll
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\BlogApp.Core.pdb
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\BlogApp.Core.dll.config
+D:\Projeler\GitHub\dynamic-blog-web-app\BlogApp.UI\BlogApp.UI\bin\Ninject.xml
